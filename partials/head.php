@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- Favicons Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.png" />
 
     <!-- Title -->
     <title>Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )</title>
