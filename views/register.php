@@ -23,8 +23,8 @@ require_once('../partials/head.php');
             <!-- Banner End -->
             <br><br><br><br><br><br>
             <div class="container">
-                <h2 class="dz-title">Sign In</h2>
-                <p class="mb-0">Please sign in to your account</p><br><br>
+                <h2 class="dz-title">Sign Up</h2>
+                <p class="mb-0">Please sign up to your account</p><br><br>
                 <div class="account-area">
                     <form class="">
                         <div class="input-group">
