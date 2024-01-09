@@ -26,8 +26,8 @@ require_once('../partials/head.php');
                             </g>
                         </svg>
                         <div class="get-started">
-                            <h1 class="dz-title">Jobie</h1>
-                            <p>Job Portal iOS App</p>
+                            <h1 class="dz-title">Collaborative Road Rescue Ready</h1>
+                            <p>Mobile Application</p>
                         </div>
                     </div>
                     <div class="join-area">

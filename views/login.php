@@ -16,7 +16,7 @@ require_once('../partials/head.php');
             <!-- Banner -->
             <div class="banner-wrapper shape-1">
                 <div class="container inner-wrapper">
-                    <h2 class="dz-title">CRRR</h2>
+                    <h2 class="dz-title">Collaborative Road Rescue Ready</h2>
                     <br>
                 </div>
             </div>

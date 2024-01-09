@@ -16,15 +16,15 @@ require_once('../partials/head.php');
             <!-- Banner -->
             <div class="banner-wrapper shape-1">
                 <div class="container inner-wrapper">
-                    <h2 class="dz-title">CRRR</h2>
+                    <h2 class="dz-title">Collaborative Road Rescue Ready</h2>
                     <br>
                 </div>
             </div>
             <!-- Banner End -->
             <br><br><br><br><br><br>
             <div class="container">
-                <h2 class="dz-title">Sign Up</h2>
-                <p class="mb-0">Please sign up to your account</p><br><br>
+                <h2 class="dz-title">Confirm Password</h2>
+                <p class="mb-0">Enter new password and confirm</p><br><br>
                 <div class="account-area">
                     <form class="">
                         <div class="input-group">
