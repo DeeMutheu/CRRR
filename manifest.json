@@ -1,0 +1,15 @@
+{
+  "background_color": "#40189d",
+  "description": "CRRR Mobile Application.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "assets/images/pwa.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ],
+  "name": "Jobie - Job Portal",
+  "short_name": "Jobie",
+  "start_url": "/mobile-app/xhtml/index.html"
+}
