@@ -10,9 +10,9 @@
     <meta name="author" content="DexignZone" />
     <meta name="keywords" content="" />
     <meta name="robots" content="" />
-    <meta name="description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
-    <meta property="og:title" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
-    <meta property="og:description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
+    <meta name="description" content="Collaborative Road Rescue Ready Application" />
+    <meta property="og:title" content="Collaborative Road Rescue Ready Application" />
+    <meta property="og:description" content="Collaborative Road Rescue Ready Application" />
     <meta property="og:image" content="social-image.png" />
     <meta name="format-detection" content="telephone=no">
 
@@ -20,7 +20,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.png" />
 
     <!-- Title -->
-    <title>Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )</title>
+    <title>Collaborative Road Rescue Ready Application</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/vendor/swiper/swiper-bundle.min.css">
