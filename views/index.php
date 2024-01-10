@@ -37,7 +37,7 @@ require_once('../partials/head.php');
                         </div>
                         <a href="login" class="card h-auto">
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/welcome/wlc-2.svg" alt="">
+                                <img src="../assets/images/welcome/road_users.png" width="10%" alt="">
                                 <div class="ms-4">
                                     <h5>Road Users</h5>
                                     <p>Finding a job here never been easier than before</p>
@@ -46,7 +46,7 @@ require_once('../partials/head.php');
                         </a>
                         <a href="login" class="card h-auto">
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/welcome/wlc-1.svg" alt="">
+                                <img src="../assets/images/welcome/emergency.png" width="10%" alt="">
                                 <div class="ms-4">
                                     <h5>Emergency Services</h5>
                                     <p>Let’s recruit your great candidate faster here</p>
