@@ -153,11 +153,11 @@ require_once('../partials/head.php');
                                         <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
                                         <div class="item-inner">
                                             <div class="item-title-row">
-                                                <div class="item-subtitle">Date Reported: </div>
-                                                <h6 class="item-title"><a href="incident">Incident Type</a></h6>
+                                                <div class="item-subtitle text-danger">Jan 11 2023 at 1300HRS</div>
+                                                <h6 class="item-title"><a href="incident">Road Accident</a></h6>
                                             </div>
                                             <div class="d-flex align-items-center">
-                                                <div class="item-price">Location: </div>
+                                                <div class="item-price">Mfangano Street, Haile sellasie avenue</div>
                                             </div>
                                         </div>
                                     </div>

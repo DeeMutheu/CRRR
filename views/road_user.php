@@ -65,6 +65,12 @@ require_once('../partials/head.php');
 <body>
     <div class="page-wraper">
 
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="spinner"></div>
+        </div>
+        <!-- Preloader end-->
+
         <!-- Header -->
         <header class="header">
             <div class="main-bar">
@@ -78,7 +84,7 @@ require_once('../partials/head.php');
                             </a>
                         </div>
                         <div class="mid-content">
-                            <h5 class="mb-0">Road Users</h5>
+                            <h5 class="mb-0">Profile</h5>
                         </div>
                         <div class="right-content">
                             <a href="javascript:void(0);" class="menu-toggler">
@@ -94,73 +100,108 @@ require_once('../partials/head.php');
         </header>
         <!-- Header End -->
 
-        <!-- Preloader -->
-        <div id="preloader">
-            <div class="spinner"></div>
-        </div>
-        <!-- Preloader end-->
-
         <!-- Sidebar -->
         <?php require_once('../partials/sidebar.php'); ?>
-
         <!-- Sidebar End -->
 
 
         <!-- Page Content -->
-        <div class="page-content">
-
-            <div class="content-inner pt-0">
-                <div class="container fb">
-                    <!-- Search -->
-                    <form class="m-b30">
-                        <div class="input-group">
-                            <span class="input-group-text">
-                                <a href="javascript:void(0);" class="search-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M20.5605 18.4395L16.7528 14.6318C17.5395 13.446 18 12.0262 18 10.5C18 6.3645 14.6355 3 10.5 3C6.3645 3 3 6.3645 3 10.5C3 14.6355 6.3645 18 10.5 18C12.0262 18 13.446 17.5395 14.6318 16.7528L18.4395 20.5605C19.0245 21.1462 19.9755 21.1462 20.5605 20.5605C21.1462 19.9748 21.1462 19.0252 20.5605 18.4395ZM5.25 10.5C5.25 7.605 7.605 5.25 10.5 5.25C13.395 5.25 15.75 7.605 15.75 10.5C15.75 13.395 13.395 15.75 10.5 15.75C7.605 15.75 5.25 13.395 5.25 10.5Z" fill="#B9B9B9" />
-                                    </svg>
-                                </a>
-                            </span>
-                            <input type="text" placeholder="Search..." id="search" onkeyup="FilterFunction()" name="field_name" class="form-control ps-0 bs-0">
-                        </div>
-                    </form>
-
-                    <!-- Dashboard Area -->
-                    <div class="dashboard-area">
-
-                        <div class="list item-list recent-jobs-list">
-
-                            <div class="card job-post filter">
-                                <a href="road_user">
-                                    <div class="card-body">
-                                        <div class="media media-80">
-                                            <img src="../assets/images/user.png" alt="/">
-                                        </div>
-                                        <div class="card-info">
-                                            <h6 class="title">James Doe</h6>
-                                            <span class="location">
-                                                jamesdoe@gmail.com <br>
-                                                0712345678
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!-- Recent Jobs End -->
-
-                    </div>
+        <div class="page-content bottom-content ">
+            <div class="dz-banner-heading">
+                <div class="overlay-black-light">
+                    <img src="../assets/images/road_safety.jpg" class="bnr-img" alt="">
                 </div>
             </div>
+            <div class="container profile-area">
+                <div class="profile">
+                    <div class="media media-100">
+                        <img src="../assets/images/user.png" alt="/">
+                    </div>
+                    <div class="mb-2">
+                        <h4 class="mb-0">Henry Kanwil</h4>
+                        <span class="detail">Road User</span>
+                    </div>
+                    <p>Manage Profile</p>
+                </div>
 
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-0 pb-0">
+                            <h5 class="card-title">Update Personal Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="text-center">Full names <span class="text-danger">*</span></label>
+                                        <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
+                                        <input type="text" name="user_name" required class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Contacts <span class="text-danger">*</span></label>
+                                        <input type="number" name="user_contact_phone" required class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input type="number" name="user_contact_phone" required class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button name="Update_Profile" class="btn btn-primary" type="submit">
+                                        <em class="icon ni ni-save"></em> Update profile
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-0 pb-0">
+                            <h5 class="card-title">Authentication Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="text-center">Old Password <span class="text-danger">*</span></label>
+                                        <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
+                                        <input type="password" name="old_password" required class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>New Password <span class="text-danger">*</span></label>
+                                        <input type="password" name="new_password" required class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>New Password <span class="text-danger">*</span></label>
+                                        <input type="pasword" name="user_contact_phone" required class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button name="Update_Auth" class="btn btn-primary" type="submit">
+                                        <em class="icon ni ni-save"></em> Update authentication
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
         </div>
         <!-- Page Content End-->
+
     </div>
     <!--**********************************
     Scripts
 ***********************************-->
     <?php require_once('../partials/scripts.php'); ?>
+
 </body>
 
 
