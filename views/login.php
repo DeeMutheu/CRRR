@@ -90,12 +90,12 @@ require_once('../partials/head.php');
                                 <hr>
                             </div>
                             <div class="account-area">
-                                <form class="">
+                                <form class="" method="POST">
                                     <div class="input-group">
-                                        <input type="text" placeholder="Email address" name="login_email" class="form-control">
+                                        <input type="text" required placeholder="Email address" name="login_email" class="form-control">
                                     </div>
                                     <div class="input-group">
-                                        <input type="password" placeholder="Password" name="login_password" id="dz-password" class="form-control be-0">
+                                        <input type="password" required placeholder="Password" name="login_password" id="dz-password" class="form-control be-0">
                                         <span class="input-group-text show-pass">
                                             <i class="fa fa-eye-slash"></i>
                                             <i class="fa fa-eye"></i>

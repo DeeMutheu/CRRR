@@ -91,7 +91,7 @@ require_once('../partials/head.php');
                                 <hr>
                             </div>
                             <div class="account-area">
-                                <form class="">
+                                <form class="" method="POST">
                                     <div class="input-group">
                                         <input type="text" placeholder="Email address" name="login_email" class="form-control">
                                     </div>
