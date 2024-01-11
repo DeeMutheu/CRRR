@@ -141,6 +141,10 @@ require_once('../partials/head.php');
                                         <label>Contacts <span class="text-danger">*</span></label>
                                         <input type="number" name="user_contact_phone" required class="form-control">
                                     </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input type="number" name="user_contact_phone" required class="form-control">
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="text-center">
@@ -164,15 +168,15 @@ require_once('../partials/head.php');
                                     <div class="form-group col-md-4">
                                         <label class="text-center">Old Password <span class="text-danger">*</span></label>
                                         <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
-                                        <input type="text" name="old_password" required class="form-control">
+                                        <input type="password" name="old_password" required class="form-control">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>New Password <span class="text-danger">*</span></label>
-                                        <input type="number" name="new_password" required class="form-control">
+                                        <input type="password" name="new_password" required class="form-control">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>New Password <span class="text-danger">*</span></label>
-                                        <input type="number" name="user_contact_phone" required class="form-control">
+                                        <input type="pasword" name="user_contact_phone" required class="form-control">
                                     </div>
                                 </div>
                                 <br>
