@@ -128,7 +128,47 @@ require_once('../partials/head.php');
                         <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Add User</button>
                     </div>
                     <!-- Add Modal -->
-                    
+                    <div class="modal fade" id="AddModal">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Register Road User</h5>
+                                    <button class="btn-close" data-bs-dismiss="modal">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label class="text-center">Full names <span class="text-danger">*</span></label>
+                                                <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
+                                                <input type="text" name="user_name" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Contacts <span class="text-danger">*</span></label>
+                                                <input type="number" name="user_contact_phone" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Email <span class="text-danger">*</span></label>
+                                                <input type="number" name="login_email" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Login Password <span class="text-danger">*</span></label>
+                                                <input type="password" name="login_password" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button name="Add_Road_User" class="btn btn-primary" type="submit">
+                                                <em class="icon ni ni-save"></em> Add User
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- End Modal -->
 
                     <!-- Dashboard Area -->

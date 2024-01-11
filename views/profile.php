@@ -143,7 +143,7 @@ require_once('../partials/head.php');
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Email <span class="text-danger">*</span></label>
-                                        <input type="number" name="user_contact_phone" required class="form-control">
+                                        <input type="number" name="login_email" required class="form-control">
                                     </div>
                                 </div>
                                 <br>

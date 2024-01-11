@@ -125,6 +125,63 @@ require_once('../partials/head.php');
                         </div>
                     </form>
 
+                    <div class="d-flex flex-row-reverse">
+                        <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Report Incident</button>
+                    </div>
+                    <!-- Add Modal -->
+                    <div class="modal fade" id="AddModal">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Report Incident</h5>
+                                    <button class="btn-close" data-bs-dismiss="modal">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label class="text-center">Type <span class="text-danger">*</span></label>
+                                                <select type="text" name="road_incident_type" required class="form-control">
+                                                    <option value="Road Accident">Road Accident</option>
+                                                    <option value="Fire Accident">Fire Accident</option>
+                                                    <option value="Medical Emergency">Medical Emergency</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label class="text-center">Location <span class="text-danger">*</span></label>
+                                                <select type="text" name="road_incident_location_id" required class="form-control">
+                                                    <option value="">Select location</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Contacts <span class="text-danger">*</span></label>
+                                                <input type="number" name="user_contact_phone" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Email <span class="text-danger">*</span></label>
+                                                <input type="number" name="login_email" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Login Password <span class="text-danger">*</span></label>
+                                                <input type="password" name="login_password" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button name="Add_Road_User" class="btn btn-primary" type="submit">
+                                                <em class="icon ni ni-save"></em> Add User
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal -->
+
                     <!-- Dashboard Area -->
                     <div class="dashboard-area">
 
