@@ -121,7 +121,7 @@ require_once('../partials/head.php');
                                     </svg>
                                 </a>
                             </span>
-                            <input type="text" placeholder="Search job here..." class="form-control ps-0 bs-0">
+                            <input type="text" placeholder="Search..." id="search" onkeyup="FilterFunction()" name="field_name" class="form-control ps-0 bs-0">
                         </div>
                     </form>
 
@@ -130,7 +130,7 @@ require_once('../partials/head.php');
 
                         <div class="list item-list recent-jobs-list">
 
-                            <div class="card job-post">
+                            <div class="card job-post filter">
                                 <div class="card-body">
                                     <div class="media media-80">
                                         <img src="../assets/images/user.png" alt="/">

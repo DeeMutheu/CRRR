@@ -108,7 +108,7 @@ require_once('../partials/head.php');
                                     </svg>
                                 </a>
                             </span>
-                            <input type="text" placeholder="Search incidents here..." class="form-control ps-0 bs-0">
+                            <input type="text" placeholder="Search incidents here..." id="search" onkeyup="FilterFunction()" class="form-control ps-0 bs-0">
                         </div>
                     </form>
 
@@ -148,7 +148,7 @@ require_once('../partials/head.php');
                         </div>
                         <div class="list item-list recent-jobs-list">
                             <ul>
-                                <li>
+                                <li class="filter">
                                     <div class="item-content">
                                         <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
                                         <div class="item-inner">
