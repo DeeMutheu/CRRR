@@ -124,10 +124,15 @@ require_once('../partials/head.php');
                             <input type="text" placeholder="Search..." id="search" onkeyup="FilterFunction()" name="field_name" class="form-control ps-0 bs-0">
                         </div>
                     </form>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Add User</button>
+                    </div>
+                    <!-- Add Modal -->
+                    
+                    <!-- End Modal -->
 
                     <!-- Dashboard Area -->
                     <div class="dashboard-area">
-
                         <div class="list item-list recent-jobs-list">
 
                             <div class="card job-post filter">

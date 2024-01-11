@@ -134,7 +134,7 @@ require_once('../partials/head.php');
                                 <a href="road_user">
                                     <div class="card-body">
                                         <div class="media media-80">
-                                            <img src="../assets/images/logo/logo.png" alt="/">
+                                            <img src="../assets/images/favicon.png" alt="/">
                                         </div>
                                         <div class="card-info">
                                             <h6 class="title">Red Cross</h6>
