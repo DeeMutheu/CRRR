@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="author-box">
         <div class="dz-media">
-            <img src="assets/images/author/pic1.png" class="rounded-circle" alt="author-image">
+            <img src="../assets/images/user.png" class="rounded-circle" alt="author-image">
         </div>
         <div class="dz-info">
             <span>Good Morning</span>

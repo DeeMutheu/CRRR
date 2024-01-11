@@ -87,7 +87,7 @@ require_once('../partials/head.php');
                     <h2 class="name mb-0">Henry Kanwil</h2>
                 </div>
                 <div class="dz-media media-45 rounded-circle">
-                    <a href="profile"><img src="../assets/images/author/pic1.png" class="rounded-circle" alt="author-image"></a>
+                    <a href="profile"><img src="../assets/images/user.png" class="rounded-circle" alt="author-image"></a>
                 </div>
             </div>
         </div>
