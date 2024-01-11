@@ -10,25 +10,19 @@
     </div>
     <ul class="nav navbar-nav">
         <li class="nav-label">Main Menu</li>
-        <li><a class="nav-link" href="welcome.html">
-                <span class="dz-icon bg-red light">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.4" d="M11.776 21.8374C9.49294 20.4273 7.37064 18.7645 5.44791 16.8796C4.09052 15.5338 3.05388 13.8905 2.41718 12.0753C1.27955 8.53523 2.60383 4.48948 6.30113 3.2884C8.25264 2.67553 10.3751 3.05175 12.0071 4.29983C13.6397 3.05315 15.7614 2.67705 17.713 3.2884C21.4103 4.48948 22.7435 8.53523 21.6058 12.0753C20.9743 13.8888 19.9438 15.5319 18.5929 16.8796C16.6684 18.7625 14.5463 20.4251 12.2648 21.8374L12.016 22L11.776 21.8374Z" fill="white" />
-                        <path d="M12.0109 22L11.776 21.8374C9.49013 20.4274 7.36487 18.7647 5.43902 16.8796C4.0752 15.5356 3.03238 13.8922 2.39052 12.0753C1.26177 8.53523 2.58605 4.48948 6.28335 3.2884C8.23486 2.67553 10.3853 3.05204 12.0109 4.31057V22Z" fill="white" />
-                        <path d="M18.2304 9.99922C18.0296 9.98629 17.8425 9.8859 17.7131 9.72157C17.5836 9.55723 17.5232 9.3434 17.5459 9.13016C17.5677 8.4278 17.168 7.78851 16.5517 7.53977C16.1609 7.43309 15.9243 7.00987 16.022 6.59249C16.1148 6.18182 16.4993 5.92647 16.8858 6.0189C16.9346 6.027 16.9816 6.04468 17.0244 6.07105C18.2601 6.54658 19.0601 7.82641 18.9965 9.22576C18.9944 9.43785 18.9117 9.63998 18.7673 9.78581C18.6229 9.93164 18.4291 10.0087 18.2304 9.99922Z" fill="white" />
-                    </svg>
-                </span>
-                <span>Welcome</span>
-            </a></li>
-        <li><a class="nav-link" href="index.html">
+
+        <li>
+            <a class="nav-link" href="index.html">
                 <span class="dz-icon bg-pink light">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z" fill="#130F26" />
                     </svg>
                 </span>
                 <span>Home</span>
-            </a></li>
-        <li><a class="nav-link" href="pages.html">
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="pages.html">
                 <span class="dz-icon bg-orange light">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -38,9 +32,11 @@
                         </g>
                     </svg>
                 </span>
-                <span>Pages</span>
-            </a></li>
-        <li><a class="nav-link" href="ui-components.html">
+                <span>Road Users</span>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="ui-components.html">
                 <span class="dz-icon bg-skyblue light">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -50,9 +46,11 @@
                         </g>
                     </svg>
                 </span>
-                <span>Components</span>
-            </a></li>
-        <li><a class="nav-link" href="notification.html">
+                <span>Emergency Services</span>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="notification.html">
                 <span class="dz-icon bg-green light">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -61,9 +59,9 @@
                         </g>
                     </svg>
                 </span>
-                <span>Notification</span>
-                <span class="badge badge-circle badge-danger">1</span>
-            </a></li>
+                <span>Incidents</span>
+            </a>
+        </li>
         <li><a class="nav-link" href="profile.html">
                 <span class="dz-icon bg-yellow light">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -75,20 +73,9 @@
                     </svg>
                 </span>
                 <span>Profile</span>
-            </a></li>
-        <li><a class="nav-link" href="messages.html">
-                <span class="dz-icon bg-skyblue light">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path d="M21.9999843,15.009808 L22.0249378,15 L22.0249378,19.5857864 C22.0249378,20.1380712 21.5772226,20.5857864 21.0249378,20.5857864 C20.7597213,20.5857864 20.5053674,20.4804296 20.317831,20.2928932 L18.0249378,18 L6,18 C4.34314575,18 3,16.6568542 3,15 L3,6 C3,4.34314575 4.34314575,3 6,3 L19,3 C20.6568542,3 22,4.34314575 22,6 L22,15 C22,15.0032706 21.9999948,15.0065399 21.9999843,15.009808 Z" fill="#fff" opacity="0.3" />
-                            <path d="M7.5,12 C6.67157288,12 6,11.3284271 6,10.5 C6,9.67157288 6.67157288,9 7.5,9 C8.32842712,9 9,9.67157288 9,10.5 C9,11.3284271 8.32842712,12 7.5,12 Z M12.5,12 C11.6715729,12 11,11.3284271 11,10.5 C11,9.67157288 11.6715729,9 12.5,9 C13.3284271,9 14,9.67157288 14,10.5 C14,11.3284271 13.3284271,12 12.5,12 Z M17.5,12 C16.6715729,12 16,11.3284271 16,10.5 C16,9.67157288 16.6715729,9 17.5,9 C18.3284271,9 19,9.67157288 19,10.5 C19,11.3284271 18.3284271,12 17.5,12 Z" fill="#fff" opacity="0.3" />
-                        </g>
-                    </svg>
-                </span>
-                <span>Chat</span>
-                <span class="badge badge-circle badge-info">5</span>
-            </a></li>
+            </a>
+        </li>
+
         <li>
             <a class="nav-link" href="onboading.html">
                 <span class="dz-icon bg-red light">
@@ -102,54 +89,6 @@
                     </svg>
                 </span>
                 <span>Logout</span>
-            </a>
-        </li>
-        <li class="sub-menu-down">
-            <a class="nav-link" href="javascript:void(0);">
-                <span class="dz-icon bg-red light">
-                    <svg height="18" viewBox="0 0 512 512" width="18" xmlns="http://www.w3.org/2000/svg">
-                        <g id="_40_Sidemenu" data-name="40 Sidemenu">
-                            <g fill="#a9defc">
-                                <rect height="105.52" rx="24" width="231.61" x="34.56" y="80.54" />
-                                <rect height="105.52" rx="24" width="231.61" x="34.56" y="203.24" />
-                                <rect height="105.52" rx="24" width="231.61" x="34.56" y="325.94" />
-                            </g>
-                            <path d="m309.41 501h-274.85a20.46 20.46 0 0 1 0-40.91h254.44v-408.18h-254.44a20.46 20.46 0 0 1 0-40.91h274.85a20.46 20.46 0 0 1 20.46 20.46v449.08a20.46 20.46 0 0 1 -20.46 20.46z" fill="#f5d367" />
-                            <path d="m491.92 241.44c-1.43-1.44-74.62-73.44-74.62-73.44a20.46 20.46 0 0 0 -28.93 29l59.55 59.55-59.55 59.55a20.46 20.46 0 0 0 28.93 28.9s73.19-72 74.62-73.41a22 22 0 0 0 0-30.14z" fill="#f5d367" />
-                            <path d="m123.85 431.47h-65.29a24 24 0 0 1 -24-24v-57.53a24 24 0 0 1 11.65-20.58 501.22 501.22 0 0 0 77.64 102.11z" fill="#a2d4ea" />
-                            <path d="m209.31 501h-174.75a20.46 20.46 0 1 1 0-40.91h120a499.3 499.3 0 0 0 54.75 40.91z" fill="#e2c061" />
-                        </g>
-                    </svg>
-                </span>
-                <span>One Level (Mulitilevel)</span>
-            </a>
-            <ul class="sub-menu">
-                <li class="sub-menu-down">
-                    <a href="javascript:void(0);">Two Level</a>
-                    <ul class="sub-menu">
-                        <li class="sub-menu-down">
-                            <a href="javascript:void(0);">Three Level</a>
-                            <ul class="sub-menu">
-                                <li><a href="javascript:void(0);">Menu 1</a></li>
-                                <li><a href="javascript:void(0);">Menu 2</a></li>
-                                <li><a href="javascript:void(0);">Menu 3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:void(0);">Menu 2</a></li>
-                        <li><a href="javascript:void(0);">Menu 3</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:void(0);">Menu 2</a></li>
-                <li><a href="javascript:void(0);">Menu 3</a></li>
-            </ul>
-        </li>
-        <li class="nav-label">Settings</li>
-        <li class="nav-color" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
-            <a class="nav-link">
-                <span class="dz-icon bg-blue light">
-                    <i class="fa-solid fa-palette"></i>
-                </span>
-                <span>Highlights</span>
             </a>
         </li>
         <li>
@@ -166,7 +105,7 @@
         </li>
     </ul>
     <div class="sidebar-bottom">
-        <h6 class="name">Jobie - Job Portal</h6>
+        <h6 class="name">Collaborative Road Rescue Ready Application</h6>
         <p>App Version 1.0</p>
     </div>
 </div>
