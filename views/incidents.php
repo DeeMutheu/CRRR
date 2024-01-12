@@ -144,6 +144,7 @@ require_once('../partials/head.php');
                                             <div class="form-group col-md-4">
                                                 <label class="text-center">Type <span class="text-danger">*</span></label>
                                                 <select type="text" name="road_incident_type" required class="form-control">
+                                                    <option value="">Select type</option>
                                                     <option value="Road Accident">Road Accident</option>
                                                     <option value="Fire Accident">Fire Accident</option>
                                                     <option value="Medical Emergency">Medical Emergency</option>
@@ -154,24 +155,20 @@ require_once('../partials/head.php');
                                                 <label class="text-center">Location <span class="text-danger">*</span></label>
                                                 <select type="text" name="road_incident_location_id" required class="form-control">
                                                     <option value="">Select location</option>
+                                                    <?php
+                                                    /* Pull List Of Locations */
+                                                    ?>
+                                                    <?php ?>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label>Contacts <span class="text-danger">*</span></label>
-                                                <input type="number" name="user_contact_phone" required class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label>Email <span class="text-danger">*</span></label>
-                                                <input type="number" name="login_email" required class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label>Login Password <span class="text-danger">*</span></label>
-                                                <input type="password" name="login_password" required class="form-control">
+                                                <label>Incident description <span class="text-danger">*</span></label>
+                                                <textarea name="road_incident_description" required class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="text-center">
-                                            <button name="Add_Road_User" class="btn btn-primary" type="submit">
+                                            <button name="ReportIncident" class="btn btn-primary" type="submit">
                                                 <em class="icon ni ni-save"></em> Add User
                                             </button>
                                         </div>

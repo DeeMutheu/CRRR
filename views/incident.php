@@ -159,12 +159,29 @@ require_once('../partials/head.php');
         <div class="footer fixed bg-white">
             <div class="container">
                 <div class="footer-btn d-flex align-items-center">
-                    <a href="" class="btn btn-primary btn-rounded flex-1 ms-2">Respond / Decline</a>
+                    <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
                 </div>
             </div>
         </div>
         <!-- Footer End -->
 
+        <!-- Respond Modals -->.
+        <div class="modal fade" id="AddModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Respond This Incident</h5>
+                        <button class="btn-close" data-bs-dismiss="modal">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modals -->
     </div>
     <!--**********************************
     Scripts
