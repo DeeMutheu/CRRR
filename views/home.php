@@ -124,7 +124,7 @@ require_once('../partials/head.php');
                                     <div class="card card-bx card-content bg-primary">
                                         <div class="card-body">
                                             <div class="card-info">
-                                                <h4 class="title">29</h4>
+                                                <h4 class="title"><?php echo $incidents; ?></h4>
                                                 <p>Reported Incidents</p>
                                             </div>
                                         </div>
@@ -134,8 +134,38 @@ require_once('../partials/head.php');
                                     <div class="card card-bx card-content bg-secondary">
                                         <div class="card-body">
                                             <div class="card-info">
-                                                <h4 class="title">3</h4>
+                                                <h4 class="title"><?php echo $accepted_incidents; ?></h4>
+                                                <p>Accepted Incidents</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card card-bx card-content bg-secondary">
+                                        <div class="card-body">
+                                            <div class="card-info">
+                                                <h4 class="title"><?php echo $declined_incidents; ?></h4>
                                                 <p>Declined Incidents</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card card-bx card-content bg-secondary">
+                                        <div class="card-body">
+                                            <div class="card-info">
+                                                <h4 class="title"><?php echo $users; ?></h4>
+                                                <p>Road users</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card card-bx card-content bg-secondary">
+                                        <div class="card-body">
+                                            <div class="card-info">
+                                                <h4 class="title"><?php echo $response_services; ?></h4>
+                                                <p>Response Services</p>
                                             </div>
                                         </div>
                                     </div>
