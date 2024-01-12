@@ -195,6 +195,32 @@ require_once('../partials/head.php');
             </div>
         </div>
         <!-- Page Content End-->
+        <!-- Footer -->
+        <div class="footer fixed bg-white">
+            <div class="container">
+                <div class="footer-btn d-flex align-items-center">
+                    <button type="button" class="btn w-100 btn-danger mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Delete Road User</button>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Respond Modals -->.
+        <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form method="POST">
+                        <div class="modal-body text-center text-dark">
+                            <img src="../assets/images/favicon.png" width="90"><br>
+                            <h4>Delete this user account?</h4>
+                            <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No</button>
+                            <input type="submit" name="RespondIncident" value="Yes, Delete" class="text-center btn btn-success btn-sm">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Modals -->
 
     </div>
     <!--**********************************
