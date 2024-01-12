@@ -169,12 +169,12 @@ require_once('../partials/head.php');
         <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <form method="POST" action="logout">
+                    <form method="POST">
                         <div class="modal-body text-center text-dark">
-                            <img src="../public/img/small-logo.png" height="80px"><br>
+                            <img src="../assets/images/favicon.png" width="90"><br>
                             <h4>Repond to this Incident</h4>
-                            <button type="button" class="text-center btn btn-success btn-sm" data-bs-dismiss="modal">No, Decline</button>
-                            <input type="submit" value="Yes, Respond" class="text-center btn btn-danger btn-sm">
+                            <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No, Decline</button>
+                            <input type="submit" name="RespondIncident" value="Yes, Respond" class="text-center btn btn-success btn-sm">
                         </div>
                     </form>
                 </div>
