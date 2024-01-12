@@ -91,7 +91,7 @@ if (isset($_POST['Register'])) {
     $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
     $login_rank = mysqli_real_escape_string($mysqli, 'Road User');
 
-    $duplication_checker = "SELECT * FROM login WHERE login_username = '{$login_email}'";
+    $duplication_checker = "SELECT * FROM login WHERE login_email = '{$login_email}'";
     $res = mysqli_query($mysqli, $duplication_checker);
     if (mysqli_num_rows($res) > 0) {
         $err = "Email already exists";
