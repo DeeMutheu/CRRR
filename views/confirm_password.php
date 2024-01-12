@@ -95,14 +95,14 @@ require_once('../partials/head.php');
                             <div class="account-area">
                                 <form class="" method="POST">
                                     <div class="input-group">
-                                        <input type="password" required placeholder="New Password" name="login_password" id="dz-password" class="form-control be-0">
+                                        <input type="password" required placeholder="New Password" name="new_password" id="dz-password" class="form-control be-0">
                                         <span class="input-group-text show-pass">
                                             <i class="fa fa-eye-slash"></i>
                                             <i class="fa fa-eye"></i>
                                         </span>
                                     </div>
                                     <div class="input-group">
-                                        <input type="password" required placeholder="Confirm Password" name="login_password" id="dz-password" class="form-control be-0">
+                                        <input type="password" required placeholder="Confirm Password" name="confirm_password" id="dz-password" class="form-control be-0">
                                         <span class="input-group-text show-pass">
                                             <i class="fa fa-eye-slash"></i>
                                             <i class="fa fa-eye"></i>

@@ -99,7 +99,7 @@ require_once('../partials/head.php');
                                         <input type="text" placeholder="Email address" name="login_email" class="form-control">
                                     </div>
                                     <div class="input-group">
-                                        <button type="submit" name="login" class="btn mt-2 btn-primary w-100 btn-rounded">Reset password</button>
+                                        <button type="submit" name="Reset_Password" class="btn mt-2 btn-primary w-100 btn-rounded">Reset password</button>
                                     </div>
                                     <div class="input-group">
                                         <p class="text-center mb-0">Rembered password? <a href="login">Login</a></p>

@@ -155,7 +155,7 @@ if (isset($_POST['Confirm_Password'])) {
         if ($prepare) {
             /* Redirect User To Confirm Password */
             $_SESSION['success'] = 'Password Reset Successfully, Proceed To Login';
-            header('Location: ../');
+            header('Location: login');
             exit;
         } else {
             $err = "Failed!, Please Try Again";
