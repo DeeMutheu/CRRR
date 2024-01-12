@@ -166,18 +166,17 @@ require_once('../partials/head.php');
         <!-- Footer End -->
 
         <!-- Respond Modals -->.
-        <div class="modal fade" id="AddModal">
+        <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Respond This Incident</h5>
-                        <button class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                       
-                    </div>
+                    <form method="POST" action="logout">
+                        <div class="modal-body text-center text-dark">
+                            <img src="../public/img/small-logo.png" height="80px"><br>
+                            <h4>Repond to this Incident</h4>
+                            <button type="button" class="text-center btn btn-success btn-sm" data-dismiss="modal">No, Decline</button>
+                            <input type="submit" value="Yes, Respond" class="text-center btn btn-danger btn-sm">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
