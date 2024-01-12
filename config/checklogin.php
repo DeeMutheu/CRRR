@@ -60,33 +60,17 @@
  */
 
 
-
+/* Check Login Function Kill All Unauthorized Logins */
 function check_login()
 {
-	if (
-		$_SESSION['user_access_level'] == 'Staff' || $_SESSION['user_access_level'] == 'System Administrator'
-		|| $_SESSION['user_access_level'] == 'ECM' || $_SESSION['user_access_level'] == 'ECMS' || $_SESSION['user_access_level'] == 'Chief Officer'
-		|| $_SESSION['user_access_level'] == 'Director' || $_SESSION['user_access_level'] == 'Director - IMV'
-	) {
-		/* High Level Checklogin */
-		if ((strlen($_SESSION['user_id']) == 0)) {
-			$host = $_SERVER['HTTP_HOST'];
-			$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-			$extra = "login";
-			$_SESSION["user_id"] = "";
-			header("Location: http://$host$uri/$extra");
-		}
-	} else {
-		/* Atachee / Applicant Checklogin */
-		if ((strlen($_SESSION['attachee_id']) == 0)) {
-			$host = $_SERVER['HTTP_HOST'];
-			$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-			$extra = "login";
-			$_SESSION["attachee_id"] = "";
-			header("Location: http://$host$uri/$extra");
-		}
+	if ((strlen($_SESSION['login_id']) == 0)) {
+		$host = $_SERVER['HTTP_HOST'];
+		$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		$extra = "../";
+		$_SESSION["login_id"] = "";
+		header("Location: http://$host$uri/$extra");
 	}
 }
 
-/* Invoke IT */
+/* Invoke It */
 check_login();
