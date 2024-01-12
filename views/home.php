@@ -58,6 +58,9 @@
  * IN NO EVENT WILL DEVLAN  LIABILITY FOR ANY CLAIM, WHETHER IN CONTRACT 
  * TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  */
+session_start();
+require_once('../config/checklogin.php');
+require_once('../functions/analytics.php');
 require_once('../partials/head.php');
 ?>
 

@@ -95,7 +95,6 @@ $stmt->fetch();
 $stmt->close();
 
 
-
 /* Service Providers */
 $query = "SELECT COUNT(*) FROM response_services";
 $stmt = $mysqli->prepare($query);
