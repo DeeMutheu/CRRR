@@ -125,8 +125,66 @@ require_once('../partials/head.php');
                         </div>
                     </form>
 
+
                     <!-- Dashboard Area -->
                     <div class="dashboard-area">
+                        <div class="d-flex flex-row-reverse">
+                            <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Add Emergency Service</button>
+                        </div>
+                        <!-- Add Modal -->
+                        <div class="modal fade" id="AddModal">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Register New Emergecy Service</h5>
+                                        <button class="btn-close" data-bs-dismiss="modal">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" enctype="multipart/form-data">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label class="text-center">Emergency service name <span class="text-danger">*</span></label>
+                                                    <input type="text" name="response_service_name" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Contact person name <span class="text-danger">*</span></label>
+                                                    <input type="text" name="response_service_contact_person_name" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Contact person phone number <span class="text-danger">*</span></label>
+                                                    <input type="number" name="response_service_contact_person_phone" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Location <span class="text-danger">*</span></label>
+                                                    <input type="text" name="response_service_location" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label class="text-center">Login email <span class="text-danger">*</span></label>
+                                                    <input type="email" name="login_email" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label class="text-center">Password <span class="text-danger">*</span></label>
+                                                    <input type="password" name="login_password" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Details <span class="text-danger">*</span></label>
+                                                    <textarea name=" response_service_description " required class="form-control" rows="2"></textarea>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="text-center">
+                                                <button name="Add_Emergency_Service" class="btn btn-primary" type="submit">
+                                                    <em class="icon ni ni-save"></em> Add
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
 
                         <div class="list item-list recent-jobs-list">
 
