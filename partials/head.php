@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../assets/vendor/select2/css/select2.min.css">
     <link rel="stylesheet" href="../assets/vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="../assets/vendor/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
