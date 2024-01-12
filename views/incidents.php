@@ -169,7 +169,7 @@ require_once('../partials/head.php');
                                         <br>
                                         <div class="text-center">
                                             <button name="ReportIncident" class="btn btn-primary" type="submit">
-                                                <em class="icon ni ni-save"></em> Add User
+                                                <em class="icon ni ni-save"></em> Report Incident
                                             </button>
                                         </div>
                                     </form>
