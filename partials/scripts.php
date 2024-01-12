@@ -37,9 +37,9 @@
     <script>
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-left',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
         });
         Toast.fire({
             type: 'success',
@@ -53,9 +53,9 @@ if (isset($err)) { ?>
         /* Pop Error Message */
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-right',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
         });
         Toast.fire({
             type: 'error',
@@ -69,9 +69,9 @@ if (isset($info)) { ?>
         /* Pop Warning  */
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-right',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
         });
         Toast.fire({
             type: 'info',
