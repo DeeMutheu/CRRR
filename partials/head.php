@@ -37,5 +37,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&amp;display=swap" rel="stylesheet">
-
+    <?php
+    /* Alert Sesion Via Alerts */
+    if (isset($_SESSION['success'])) {
+        $success = $_SESSION['success'];
+        unset($_SESSION['success']);
+    }
+    /* Alert Sesion Via Alerts */
+    if (isset($_SESSION['err'])) {
+        $err = $_SESSION['err'];
+        unset($_SESSION['err']);
+    }
+    ?>
 </head>
