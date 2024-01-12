@@ -58,6 +58,8 @@
  * IN NO EVENT WILL DEVLAN  LIABILITY FOR ANY CLAIM, WHETHER IN CONTRACT 
  * TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  */
+session_start();
+require_once('../config/config.php');
 require_once('../partials/head.php');
 ?>
 
@@ -103,7 +105,7 @@ require_once('../partials/head.php');
                                     </div>
                                     <a href="reset_password" class="btn-link d-block text-center">Forgot your password?</a>
                                     <div class="input-group">
-                                        <button type="submit" name="login" class="btn mt-2 btn-primary w-100 btn-rounded">Login</button>
+                                        <button type="submit" name="Login" class="btn mt-2 btn-primary w-100 btn-rounded">Login</button>
                                     </div>
                                     <div class="input-group">
                                         <p class="text-center mb-0">Don't have an account? <a href="register">Sign In</a></p>
