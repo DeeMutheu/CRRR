@@ -222,23 +222,23 @@ require_once('../partials/head.php');
                             <ul>
                                 <?php
                                 /* Get This Part With Logged In User Session */
-                                $users_sql = mysqli_query(
+                                $incidents_sql = mysqli_query(
                                     $mysqli,
-                                    "SELECT * FROM road_users WHERE user_login_id = '{$_SESSION['login_id']}'"
+                                    "SELECT * FROM road_incidents"
                                 );
-                                if (mysqli_num_rows($users_sql) > 0) {
-                                    while ($user = mysqli_fetch_array($users_sql)) {
+                                if (mysqli_num_rows($incidents_sql) > 0) {
+                                    while ($incidents = mysqli_fetch_array($incidents_sql)) {
                                 ?>
                                         <li class="filter">
                                             <div class="item-content">
                                                 <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
                                                 <div class="item-inner">
                                                     <div class="item-title-row">
-                                                        <div class="item-subtitle text-danger">Jan 11 2023 at 1300HRS</div>
-                                                        <h6 class="item-title"><a href="incident">Road Accident</a></h6>
+                                                        <div class="item-subtitle text-danger"><?php echo $incidents['road_incident_date_reported']; ?></div>
+                                                        <h6 class="item-title"><a href="incident"><?php echo $incidents['road_incident_type']; ?></a></h6>
                                                     </div>
                                                     <div class="d-flex align-items-center">
-                                                        <div class="item-price">Mfangano Street, Haile sellasie avenue</div>
+                                                        <div class="item-price"><?php echo $incidents['location_name']; ?></div>
                                                     </div>
                                                 </div>
                                             </div>
