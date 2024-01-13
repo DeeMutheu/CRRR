@@ -221,7 +221,6 @@ require_once('../partials/head.php');
                         <div class="list item-list recent-jobs-list">
                             <ul>
                                 <?php
-                                /* Get This Part With Logged In User Session */
                                 $incidents_sql = mysqli_query(
                                     $mysqli,
                                     "SELECT * FROM road_incidents ri
