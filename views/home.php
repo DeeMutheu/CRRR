@@ -118,17 +118,28 @@ require_once('../partials/head.php');
         <!-- Sidebar End -->
 
         <!-- Banner -->
-        <div class="banner-wrapper author-notification">
-            <div class="container inner-wrapper">
-                <div class="dz-info">
-                    <span>Good Morning</span>
-                    <h2 class="name mb-0">Henry Kanwil</h2>
+        <?php
+        /* Get This Part With Logged In User Session */
+        $users_sql = mysqli_query(
+            $mysqli,
+            "SELECT * FROM road_users WHERE user_login_id = '{$_SESSION['login_id']}'"
+        );
+        if (mysqli_num_rows($users_sql) > 0) {
+            while ($user = mysqli_fetch_array($users_sql)) {
+        ?>
+                <div class="banner-wrapper author-notification">
+                    <div class="container inner-wrapper">
+                        <div class="dz-info">
+                            <span>Good Morning</span>
+                            <h2 class="name mb-0"><?php echo $user['user_name']; ?></h2>
+                        </div>
+                        <div class="dz-media media-45 rounded-circle">
+                            <a href="profile"><img src="../assets/images/user.png" class="rounded-circle" alt="author-image"></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="dz-media media-45 rounded-circle">
-                    <a href="profile"><img src="../assets/images/user.png" class="rounded-circle" alt="author-image"></a>
-                </div>
-            </div>
-        </div>
+        <?php }
+        } ?>
         <!-- Banner End -->
 
         <!-- Page Content -->
