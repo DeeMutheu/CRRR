@@ -224,7 +224,8 @@ require_once('../partials/head.php');
                                 /* Get This Part With Logged In User Session */
                                 $incidents_sql = mysqli_query(
                                     $mysqli,
-                                    "SELECT * FROM road_incidents"
+                                    "SELECT * FROM road_incidents ri
+                                    INNER JOIN locations l ON l.location_id = ri.road_incident_location_id"
                                 );
                                 if (mysqli_num_rows($incidents_sql) > 0) {
                                     while ($incidents = mysqli_fetch_array($incidents_sql)) {
