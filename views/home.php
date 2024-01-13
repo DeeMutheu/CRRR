@@ -130,7 +130,7 @@ require_once('../partials/head.php');
                 <div class="banner-wrapper author-notification">
                     <div class="container inner-wrapper">
                         <div class="dz-info">
-                            <span>Hello</span>
+                            <span><?php echo $greeting; ?></span>
                             <h2 class="name mb-0"><?php echo $user['user_name']; ?>!</h2>
                         </div>
                         <div class="dz-media media-45 rounded-circle">
