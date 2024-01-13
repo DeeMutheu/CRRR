@@ -130,8 +130,8 @@ require_once('../partials/head.php');
                 <div class="banner-wrapper author-notification">
                     <div class="container inner-wrapper">
                         <div class="dz-info">
-                            <span>Good Morning</span>
-                            <h2 class="name mb-0"><?php echo $user['user_name']; ?></h2>
+                            <span>Hello</span>
+                            <h2 class="name mb-0"><?php echo $user['user_name']; ?>!</h2>
                         </div>
                         <div class="dz-media media-45 rounded-circle">
                             <a href="profile"><img src="../assets/images/user.png" class="rounded-circle" alt="author-image"></a>
@@ -220,22 +220,45 @@ require_once('../partials/head.php');
                         </div>
                         <div class="list item-list recent-jobs-list">
                             <ul>
-                                <li class="filter">
-                                    <div class="item-content">
-                                        <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-subtitle text-danger">Jan 11 2023 at 1300HRS</div>
-                                                <h6 class="item-title"><a href="incident">Road Accident</a></h6>
+                                <?php
+                                /* Get This Part With Logged In User Session */
+                                $users_sql = mysqli_query(
+                                    $mysqli,
+                                    "SELECT * FROM road_users WHERE user_login_id = '{$_SESSION['login_id']}'"
+                                );
+                                if (mysqli_num_rows($users_sql) > 0) {
+                                    while ($user = mysqli_fetch_array($users_sql)) {
+                                ?>
+                                        <li class="filter">
+                                            <div class="item-content">
+                                                <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-subtitle text-danger">Jan 11 2023 at 1300HRS</div>
+                                                        <h6 class="item-title"><a href="incident">Road Accident</a></h6>
+                                                    </div>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="item-price">Mfangano Street, Haile sellasie avenue</div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="d-flex align-items-center">
-                                                <div class="item-price">Mfangano Street, Haile sellasie avenue</div>
+                                            <div class="sortable-handler"></div>
+                                        </li>
+                                    <?php }
+                                } else { ?>
+                                    <li class="filter">
+                                        <div class="item-content">
+                                            <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-subtitle text-danger"><?php echo date('d M Y g:ia'); ?></div>
+                                                    <h6 class="item-title text-danger">No reported incidents</h6>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="sortable-handler"></div>
-                                </li>
-
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <!-- Recent Jobs End -->
