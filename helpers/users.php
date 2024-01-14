@@ -76,7 +76,7 @@ if (isset($_POST['Update_Profile'])) {
     );
     $update_email_sql = mysqli_query(
         $mysqli,
-        "UPDATE login_users SET login_email = '{$login_email}' WHERE user_login_id = '{$user_login_id}'"
+        "UPDATE login SET login_email = '{$login_email}' WHERE user_login_id = '{$user_login_id}'"
     );
 
     if ($update_sql && $update_email_sql) {
