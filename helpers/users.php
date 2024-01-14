@@ -134,6 +134,22 @@ if (isset($_POST['Delete_User'])) {
     }
 }
 
- /* Update Auth */
+/* Update Auth */
+if (isset($_POST['Update_Auth'])) {
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
 
- /* Update Auth */
+    //Persist
+    $update_sql = mysqli_query(
+        $mysqli,
+        "UPDATE login SET login_passwrd = '{$new_password}' WHERE login_id = '{$login_id}'"
+    );
+
+    if ($update_sql) {
+        $success = "Password Updated Successfully";
+    } else {
+        $err = "Password Update Failed, Try Again";
+    }
+}
+

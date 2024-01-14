@@ -180,17 +180,13 @@ require_once('../partials/head.php');
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
-                                                <label class="text-center">Old Password <span class="text-danger">*</span></label>
-                                                <input type="hidden" name="login_id" value="<?php echo $user['login_id']; ?>" required class="form-control">
-                                                <input type="password" name="old_password" required class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-4">
                                                 <label>New Password <span class="text-danger">*</span></label>
+                                                <input type="hidden" name="login_id" value="<?php echo $user['login_id']; ?>" required class="form-control">
                                                 <input type="password" name="new_password" required class="form-control">
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label>New Password <span class="text-danger">*</span></label>
-                                                <input type="pasword" name="user_contact_phone" required class="form-control">
+                                                <label>Confirm Password <span class="text-danger">*</span></label>
+                                                <input type="pasword" name="confirm_password" required class="form-control">
                                             </div>
                                         </div>
                                         <br>
