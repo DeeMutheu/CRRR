@@ -202,7 +202,7 @@ require_once('../partials/head.php');
                                 while ($services = mysqli_fetch_array($services_sql)) {
                             ?>
                                     <div class="card job-post filter">
-                                        <a href="road_user">
+                                        <a href="emergency_service?view=<?php echo $services['response_service_id']; ?>">
                                             <div class="card-body">
                                                 <div class="media media-80">
                                                     <img src="../assets/images/favicon.png" alt="/">
