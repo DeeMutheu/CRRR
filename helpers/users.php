@@ -85,6 +85,21 @@ if (isset($_POST['Update_Profile'])) {
         $err = "Profile Update Failed, Try Again";
     }
 }
- /* Delete User */
+
+
+/* Delete User */
+if (isset($_POST['Delete_User'])) {
+    $user_login_id = mysqli_real_escape_string($mysqli, $_POST['user_login_id']);
+
+    $delete_login_sql = mysqli_query($mysqli, "DELETE FROM login WHERE login_id = '{$user_login_id}'");
+
+    if ($delete_login_sql) {
+        $success = "User Deleted Successfully";
+    } else {
+        $err = "User Delete Failed, Try Again";
+    }
+}
+
+ /* Update Auth */
 
  /* Update Auth */
