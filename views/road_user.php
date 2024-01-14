@@ -58,6 +58,9 @@
  * IN NO EVENT WILL DEVLAN  LIABILITY FOR ANY CLAIM, WHETHER IN CONTRACT 
  * TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  */
+session_start();
+require_once('../config/config.php');
+require_once('../helpers/users.php');
 require_once('../partials/head.php');
 ?>
 
@@ -101,126 +104,130 @@ require_once('../partials/head.php');
         <!-- Header End -->
 
         <!-- Sidebar -->
-        <?php require_once('../partials/sidebar.php'); ?>
-        <!-- Sidebar End -->
+        <?php require_once('../partials/sidebar.php');
+        $users_sql = mysqli_query(
+            $mysqli,
+            "SELECT * FROM road_users u
+            INNER JOIN login l ON u.user_login_id = l.login_id
+            AND u.user_login_id = '{$_GET['view']}'"
+        );
+        if (mysqli_num_rows($users_sql) > 0) {
+            while ($user = mysqli_fetch_array($users_sql)) {
+        ?>
+                <!-- Sidebar End -->
 
 
-        <!-- Page Content -->
-        <div class="page-content bottom-content ">
-            <div class="dz-banner-heading">
-                <div class="overlay-black-light">
-                    <img src="../assets/images/road_safety.jpg" class="bnr-img" alt="">
-                </div>
-            </div>
-            <div class="container profile-area">
-                <div class="profile">
-                    <div class="media media-100">
-                        <img src="../assets/images/user.png" alt="/">
-                    </div>
-                    <div class="mb-2">
-                        <h4 class="mb-0">Henry Kanwil</h4>
-                        <span class="detail">Road User</span>
-                    </div>
-                    <p>Manage Profile</p>
-                </div>
-
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h5 class="card-title">Update Personal Details</h5>
+                <!-- Page Content -->
+                <div class="page-content bottom-content ">
+                    <div class="dz-banner-heading">
+                        <div class="overlay-black-light">
+                            <img src="../assets/images/road_safety.jpg" class="bnr-img" alt="">
                         </div>
-                        <div class="card-body">
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label class="text-center">Full names <span class="text-danger">*</span></label>
-                                        <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
-                                        <input type="text" name="user_name" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Contacts <span class="text-danger">*</span></label>
-                                        <input type="number" name="user_contact_phone" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Email <span class="text-danger">*</span></label>
-                                        <input type="number" name="user_contact_phone" required class="form-control">
-                                    </div>
+                    </div>
+                    <div class="container profile-area">
+                        <div class="profile">
+                            <div class="media media-100">
+                                <img src="../assets/images/user.png" alt="/">
+                            </div>
+                            <div class="mb-2">
+                                <h4 class="mb-0"><?php echo $user['user_name']; ?></h4>
+                                <span class="detail"><?php echo $user['login_rank']; ?></span>
+                            </div>
+                            <p>Manage Profile</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-0 pb-0">
+                                    <h5 class="card-title">Personal details</h5>
                                 </div>
-                                <br>
-                                <div class="text-center">
-                                    <button name="Update_Profile" class="btn btn-primary" type="submit">
-                                        <em class="icon ni ni-save"></em> Update profile
-                                    </button>
+                                <div class="card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label class="text-center">Full names <span class="text-danger">*</span></label>
+                                                <input type="hidden" name="user_login_id" value="<?php echo $user['user_login_id']; ?>" required class="form-control">
+                                                <input type="text" name="user_name" value="<?php echo $user['user_name']; ?>" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Contacts <span class="text-danger">*</span></label>
+                                                <input type="number" name="user_contact_phone" value="<?php echo $user['user_contact_phone']; ?>" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Email <span class="text-danger">*</span></label>
+                                                <input type="text" name="login_email" value="<?php echo $user['login_email']; ?>" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button name="Update_Profile" class="btn btn-primary" type="submit">
+                                                <em class="icon ni ni-save"></em> Update profile
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-0 pb-0">
+                                    <h5 class="card-title">Authentication Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label>New Password <span class="text-danger">*</span></label>
+                                                <input type="hidden" name="login_id" value="<?php echo $user['login_id']; ?>" required class="form-control">
+                                                <input type="password" name="new_password" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Confirm Password <span class="text-danger">*</span></label>
+                                                <input type="password" name="confirm_password" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button name="Update_Auth" class="btn btn-primary" type="submit">
+                                                <em class="icon ni ni-save"></em> Update authentication
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Page Content End-->
+                <!-- Footer -->
+                <div class="footer fixed bg-white">
+                    <div class="container">
+                        <div class="footer-btn d-flex align-items-center">
+                            <button type="button" class="btn w-100 btn-danger mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Delete Road User</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer End -->
+
+                <!-- Respond Modals -->.
+                <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form method="POST">
+                                <div class="modal-body text-center text-dark">
+                                    <img src="../assets/images/favicon.png" width="90"><br>
+                                    <h4>Delete this user account?</h4>
+                                    <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No</button>
+                                    <input type="submit" name="Delete_User" value="Yes, Delete" class="text-center btn btn-success btn-sm">
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h5 class="card-title">Authentication Details</h5>
-                        </div>
-                        <div class="card-body">
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label class="text-center">Old Password <span class="text-danger">*</span></label>
-                                        <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
-                                        <input type="password" name="old_password" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>New Password <span class="text-danger">*</span></label>
-                                        <input type="password" name="new_password" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>New Password <span class="text-danger">*</span></label>
-                                        <input type="pasword" name="user_contact_phone" required class="form-control">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="text-center">
-                                    <button name="Update_Auth" class="btn btn-primary" type="submit">
-                                        <em class="icon ni ni-save"></em> Update authentication
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-        <!-- Page Content End-->
-        <!-- Footer -->
-        <div class="footer fixed bg-white">
-            <div class="container">
-                <div class="footer-btn d-flex align-items-center">
-                    <button type="button" class="btn w-100 btn-danger mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Delete Road User</button>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-        <!-- Respond Modals -->.
-        <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <form method="POST">
-                        <div class="modal-body text-center text-dark">
-                            <img src="../assets/images/favicon.png" width="90"><br>
-                            <h4>Delete this user account?</h4>
-                            <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No</button>
-                            <input type="submit" name="RespondIncident" value="Yes, Delete" class="text-center btn btn-success btn-sm">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- End Modals -->
+                <!-- End Modals -->
+        <?php }
+        } ?>
 
     </div>
     <!--**********************************

@@ -187,7 +187,7 @@ require_once('../partials/head.php');
                                 while ($user = mysqli_fetch_array($users_sql)) {
                             ?>
                                     <div class="card job-post filter">
-                                        <a href="road_user">
+                                        <a href="road_user?view=<?php echo $user['user_id']; ?>">
                                             <div class="card-body">
                                                 <div class="media media-80">
                                                     <img src="../assets/images/user.png" alt="/">
