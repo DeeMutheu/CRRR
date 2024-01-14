@@ -105,100 +105,112 @@ require_once('../partials/head.php');
         <!-- Header End -->
 
         <!-- Sidebar -->
-        <?php require_once('../partials/sidebar.php'); ?>
-        <!-- Sidebar End -->
+        <?php
+        require_once('../partials/sidebar.php');
+        //Get user details
+        $users_sql = mysqli_query(
+            $mysqli,
+            "SELECT * FROM road_users u
+            INNER JOIN login l ON u.user_login_id = l.login_id
+            WHERE user_login_id = '{$_SESSION['login_id']}'"
+        );
+        if (mysqli_num_rows($users_sql) > 0) {
+            while ($user = mysqli_fetch_array($users_sql)) {
+        ?>
+                <!-- Sidebar End -->
 
-
-        <!-- Page Content -->
-        <div class="page-content bottom-content ">
-            <div class="dz-banner-heading">
-                <div class="overlay-black-light">
-                    <img src="../assets/images/road_safety.jpg" class="bnr-img" alt="">
-                </div>
-            </div>
-            <div class="container profile-area">
-                <div class="profile">
-                    <div class="media media-100">
-                        <img src="../assets/images/user.png" alt="/">
-                    </div>
-                    <div class="mb-2">
-                        <h4 class="mb-0">Henry Kanwil</h4>
-                        <span class="detail">Road User</span>
-                    </div>
-                    <p>Manage your profile</p>
-                </div>
-
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h5 class="card-title">Personal details</h5>
-                        </div>
-                        <div class="card-body">
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label class="text-center">Full names <span class="text-danger">*</span></label>
-                                        <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
-                                        <input type="text" name="user_name" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Contacts <span class="text-danger">*</span></label>
-                                        <input type="number" name="user_contact_phone" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Email <span class="text-danger">*</span></label>
-                                        <input type="number" name="login_email" required class="form-control">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="text-center">
-                                    <button name="Update_Profile" class="btn btn-primary" type="submit">
-                                        <em class="icon ni ni-save"></em> Update profile
-                                    </button>
-                                </div>
-                            </form>
+                <!-- Page Content -->
+                <div class="page-content bottom-content ">
+                    <div class="dz-banner-heading">
+                        <div class="overlay-black-light">
+                            <img src="../assets/images/road_safety.jpg" class="bnr-img" alt="">
                         </div>
                     </div>
-                </div>
+                    <div class="container profile-area">
+                        <div class="profile">
+                            <div class="media media-100">
+                                <img src="../assets/images/user.png" alt="/">
+                            </div>
+                            <div class="mb-2">
+                                <h4 class="mb-0"><?php echo $user['user_name']; ?></h4>
+                                <span class="detail"><?php echo $user['login_rank']; ?></span>
+                            </div>
+                            <p>Manage your profile</p>
+                        </div>
 
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h5 class="card-title">Authentication Details</h5>
-                        </div>
-                        <div class="card-body">
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label class="text-center">Old Password <span class="text-danger">*</span></label>
-                                        <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
-                                        <input type="password" name="old_password" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>New Password <span class="text-danger">*</span></label>
-                                        <input type="password" name="new_password" required class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>New Password <span class="text-danger">*</span></label>
-                                        <input type="pasword" name="user_contact_phone" required class="form-control">
-                                    </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-0 pb-0">
+                                    <h5 class="card-title">Personal details</h5>
                                 </div>
-                                <br>
-                                <div class="text-center">
-                                    <button name="Update_Auth" class="btn btn-primary" type="submit">
-                                        <em class="icon ni ni-save"></em> Update authentication
-                                    </button>
+                                <div class="card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label class="text-center">Full names <span class="text-danger">*</span></label>
+                                                <input type="hidden" name="login_id" value="<?php echo $user['user_login_id']; ?>" required class="form-control">
+                                                <input type="text" name="user_name" value="<?php echo $user['user_name']; ?>" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Contacts <span class="text-danger">*</span></label>
+                                                <input type="number" name="user_contact_phone" value="<?php echo $user['user_contact_phone']; ?>" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Email <span class="text-danger">*</span></label>
+                                                <input type="number" name="login_email" value="<?php echo $user['login_email']; ?>" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button name="Update_Profile" class="btn btn-primary" type="submit">
+                                                <em class="icon ni ni-save"></em> Update profile
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-0 pb-0">
+                                    <h5 class="card-title">Authentication Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label class="text-center">Old Password <span class="text-danger">*</span></label>
+                                                <input type="hidden" name="login_id" value="<?php echo $user['login_id']; ?>" required class="form-control">
+                                                <input type="password" name="old_password" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>New Password <span class="text-danger">*</span></label>
+                                                <input type="password" name="new_password" required class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>New Password <span class="text-danger">*</span></label>
+                                                <input type="pasword" name="user_contact_phone" required class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button name="Update_Auth" class="btn btn-primary" type="submit">
+                                                <em class="icon ni ni-save"></em> Update authentication
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </div>
-
-
-
-            </div>
-        </div>
-        <!-- Page Content End-->
+                <!-- Page Content End-->
+        <?php }
+        } ?>
 
     </div>
     <!--**********************************
