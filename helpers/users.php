@@ -140,16 +140,20 @@ if (isset($_POST['Update_Auth'])) {
     $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
     $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
 
-    //Persist
-    $update_sql = mysqli_query(
-        $mysqli,
-        "UPDATE login SET login_passwrd = '{$new_password}' WHERE login_id = '{$login_id}'"
-    );
-
-    if ($update_sql) {
-        $success = "Password Updated Successfully";
+    //check if passwords match
+    if ($confirm_password != $new_password) {
+        $err = "Passwords Does Not Match";
     } else {
-        $err = "Password Update Failed, Try Again";
+        //Persist
+        $update_sql = mysqli_query(
+            $mysqli,
+            "UPDATE login SET login_passwrd = '{$new_password}' WHERE login_id = '{$login_id}'"
+        );
+
+        if ($update_sql) {
+            $success = "Password Updated Successfully";
+        } else {
+            $err = "Password Update Failed, Try Again";
+        }
     }
 }
-
