@@ -58,9 +58,11 @@
  * IN NO EVENT WILL DEVLAN  LIABILITY FOR ANY CLAIM, WHETHER IN CONTRACT 
  * TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  */
+session_start();
+require_once('../config/config.php');
+require_once('../helpers/users.php');
 require_once('../partials/head.php');
 ?>
-
 
 <body>
     <div class="page-wraper">
@@ -142,7 +144,6 @@ require_once('../partials/head.php');
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label class="text-center">Full names <span class="text-danger">*</span></label>
-                                                <input type="hidden" name="login_id" value="<?php echo $category; ?>" required class="form-control">
                                                 <input type="text" name="user_name" required class="form-control">
                                             </div>
                                             <div class="form-group col-md-4">
@@ -151,7 +152,7 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Email <span class="text-danger">*</span></label>
-                                                <input type="number" name="login_email" required class="form-control">
+                                                <input type="email" name="login_email" required class="form-control">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Login Password <span class="text-danger">*</span></label>
@@ -160,7 +161,7 @@ require_once('../partials/head.php');
                                         </div>
                                         <br>
                                         <div class="text-center">
-                                            <button name="Add_Road_User" class="btn btn-primary" type="submit">
+                                            <button name="Add_User" class="btn btn-primary" type="submit">
                                                 <em class="icon ni ni-save"></em> Add User
                                             </button>
                                         </div>
@@ -175,32 +176,49 @@ require_once('../partials/head.php');
                     <div class="dashboard-area">
                         <div class="list item-list recent-jobs-list">
 
-                            <div class="card job-post filter">
-                                <a href="road_user">
-                                    <div class="card-body">
-                                        <div class="media media-80">
-                                            <img src="../assets/images/user.png" alt="/">
-                                        </div>
-                                        <div class="card-info">
-                                            <h6 class="title">James Doe</h6>
-                                            <span class="location">
-                                                jamesdoe@gmail.com <br>
-                                                0712345678
-                                            </span>
-                                        </div>
+                            <?php
+                            // Get list of users
+                            $users_sql = mysqli_query(
+                                $mysqli,
+                                "SELECT * FROM road_users u
+                                INNER JOIN login l ON u.user_login_id = l.login_id"
+                            );
+                            if (mysqli_num_rows($users_sql) > 0) {
+                                while ($user = mysqli_fetch_array($users_sql)) {
+                            ?>
+                                    <div class="card job-post filter">
+                                        <a href="road_user">
+                                            <div class="card-body">
+                                                <div class="media media-80">
+                                                    <img src="../assets/images/user.png" alt="/">
+                                                </div>
+                                                <div class="card-info">
+                                                    <h6 class="title"><?php echo $user['user_name']; ?></h6>
+                                                    <span class="location">
+                                                        <?php echo $user['login_email']; ?> <br>
+                                                        <?php echo $user['user_contact_phone']; ?> <br>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-
+                                <?php }
+                            } else { ?>
+                                <div class="card-body">
+                                    <h6 class="title text-danger">No users available</h6>
+                                </div>
+                            <?php } ?>
                         </div>
-                        <!-- Recent Jobs End -->
 
                     </div>
+                    <!-- Recent Jobs End -->
+
                 </div>
             </div>
-
         </div>
-        <!-- Page Content End-->
+
+    </div>
+    <!-- Page Content End-->
     </div>
     <!--**********************************
     Scripts
