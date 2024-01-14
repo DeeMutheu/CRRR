@@ -61,6 +61,40 @@
 
 
 /* Add Road User */
+if (isset($_POST['Add_User'])) {
+    $user_name = mysqli_real_escape_string($mysqli, $_POST['user_name']);
+    $user_contact_phone  = mysqli_real_escape_string($mysqli, $_POST['user_contact_phone']);
+    $login_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['login_password'])));
+    $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
+    $login_rank = mysqli_real_escape_string($mysqli, 'Road User');
+
+    $duplication_checker = "SELECT * FROM login WHERE login_email = '{$login_email}'";
+    $res = mysqli_query($mysqli, $duplication_checker);
+    if (mysqli_num_rows($res) > 0) {
+        $err = "Email already exists";
+    } else {
+        /* Persist Auth */
+        $auth_sql = "INSERT INTO login (login_email, login_password, login_rank)
+            VALUES('{$login_email}', '{$login_password}', '{$login_rank}')";
+
+        if (mysqli_query($mysqli, $auth_sql)) {
+            /* Get Login ID */
+            $user_login_id = mysqli_real_escape_string($mysqli, mysqli_insert_id($mysqli));
+
+            /* Persit Customer Details */
+            $add_user = "INSERT INTO road_users (user_login_id, user_name, user_contact_phone)
+            VALUES ('{$user_login_id}', '{$user_name}', '{$user_contact_phone}')";
+
+            if (mysqli_query($mysqli, $add_user)) {
+                $success = "Road User Added Successfully";
+            } else {
+                $err = "Failed, please try again";
+            }
+        } else {
+            $err = "Failed to road user account, try again later";
+        }
+    }
+}
 
 /* Update User */
 if (isset($_POST['Update_Profile'])) {
