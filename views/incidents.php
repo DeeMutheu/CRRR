@@ -156,17 +156,17 @@ require_once('../partials/head.php');
                                                 if (mysqli_num_rows($users_sql) > 0) {
                                                     while ($user = mysqli_fetch_array($users_sql)) {
                                                 ?>
-                                                        <input type="hidden" name="road_incident_user_id" value="<?php echo $user['user_id']; ?>
+                                                        <input type="hidden" name="road_incident_user_id" value="<?php echo $user['user_id']; ?>">
                                                 <?php }
                                                 } ?>
-                                                <label class=" text-center">Type <span class="text-danger">*</span></label>
-                                                        <select type="text" name="road_incident_type" required class="form-control">
-                                                            <option value="">Select type</option>
-                                                            <option value="Road Accident">Road Accident</option>
-                                                            <option value="Fire Accident">Fire Accident</option>
-                                                            <option value="Medical Emergency">Medical Emergency</option>
-                                                            <option value="Other">Other</option>
-                                                        </select>
+                                                <label class="text-center">Type <span class="text-danger">*</span></label>
+                                                <select type="text" name="road_incident_type" required class="form-control">
+                                                    <option value="">Select type</option>
+                                                    <option value="Road Accident">Road Accident</option>
+                                                    <option value="Fire Accident">Fire Accident</option>
+                                                    <option value="Medical Emergency">Medical Emergency</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label class="text-center">Location <span class="text-danger">*</span></label>
@@ -213,21 +213,32 @@ require_once('../partials/head.php');
 
                             <div class="list item-list recent-jobs-list">
                                 <ul>
-                                    <li class="filter">
-                                        <div class="item-content">
-                                            <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
-                                            <div class="item-inner">
-                                                <div class="item-title-row">
-                                                    <div class="item-subtitle text-danger">Jan 11 2023 at 1300HRS</div>
-                                                    <h6 class="item-title"><a href="incident">Road Accident</a></h6>
+                                    <?php
+                                    $incidents_sql = mysqli_query(
+                                        $mysqli,
+                                        "SELECT * FROM road_incidents i
+                                        INNER JOIN locations l ON l.location_id = i.road_incident_location_id"
+                                    );
+                                    if (mysqli_num_rows($incidents_sql) > 0) {
+                                        while ($incidents = mysqli_fetch_array($incidents_sql)) {
+                                    ?>
+                                            <li class="filter">
+                                                <div class="item-content">
+                                                    <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-subtitle text-danger"><?php echo date('d M Y g:ia', strtotime($incidents['road_incident_date_reported'])); ?></div>
+                                                            <h6 class="item-title"><a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?></a></h6>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="item-price"><?php echo $incidents['location_name']; ?></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="item-price">Mfangano Street, Haile sellasie avenue</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="sortable-handler"></div>
-                                    </li>
+                                                <div class="sortable-handler"></div>
+                                            </li>
+                                    <?php }
+                                    } ?>
 
                                 </ul>
                             </div>
