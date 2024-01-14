@@ -112,10 +112,10 @@ require_once('../partials/head.php');
                                         </span>
                                     </div>
                                     <div class="input-group">
-                                        <button type="submit" name="Register" class="btn mt-2 btn-primary w-100 btn-rounded">Login</button>
+                                        <button type="submit" name="Register" class="btn mt-2 btn-primary w-100 btn-rounded">Sign Up</button>
                                     </div>
                                     <div class="input-group">
-                                        <p class="text-center mb-0">Already with account? <a href="login">Sign Up</a></p>
+                                        <p class="text-center mb-0">Already with account? <a href="login">Sign In</a></p>
                                     </div>
                                 </form>
                             </div>

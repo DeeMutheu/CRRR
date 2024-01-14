@@ -165,6 +165,7 @@ require_once('../partials/head.php');
                                                     <option value="Road Accident">Road Accident</option>
                                                     <option value="Fire Accident">Fire Accident</option>
                                                     <option value="Medical Emergency">Medical Emergency</option>
+                                                    <option value="Towing">Towing</option>
                                                     <option value="Other">Other</option>
                                                 </select>
                                             </div>
