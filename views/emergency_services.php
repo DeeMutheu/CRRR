@@ -61,6 +61,7 @@
 session_start();
 require_once('../config/config.php');
 require_once('../config/checklogin.php');
+require_once('../helpers/response_services.php');
 require_once('../partials/head.php');
 ?>
 
@@ -173,7 +174,7 @@ require_once('../partials/head.php');
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label>Details <span class="text-danger">*</span></label>
-                                                    <textarea name=" response_service_description " required class="form-control" rows="2"></textarea>
+                                                    <textarea name="response_service_description" required class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                             <br>
@@ -190,23 +191,42 @@ require_once('../partials/head.php');
                         <!-- End Modal -->
 
                         <div class="list item-list recent-jobs-list">
-
-                            <div class="card job-post filter">
-                                <a href="road_user">
+                            <?php
+                            //Get Response Services
+                            $services_sql = mysqli_query(
+                                $mysqli,
+                                "SELECT * FROM response_services  rs
+                                INNER JOIN login l ON rs.response_service_login_id  = l.login_id"
+                            );
+                            if (mysqli_num_rows($services_sql) > 0) {
+                                while ($services = mysqli_fetch_array($services_sql)) {
+                            ?>
+                                    <div class="card job-post filter">
+                                        <a href="road_user">
+                                            <div class="card-body">
+                                                <div class="media media-80">
+                                                    <img src="../assets/images/favicon.png" alt="/">
+                                                </div>
+                                                <div class="card-info">
+                                                    <h6 class="title"><?php echo $services['response_service_name']; ?></h6>
+                                                    <span class="location">
+                                                        <?php echo $services['login_email']; ?> <br>
+                                                        <?php echo $services['response_service_contact_person_phone']; ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php }
+                            } else { ?>
+                                <div class="card job-post filter">
                                     <div class="card-body">
-                                        <div class="media media-80">
-                                            <img src="../assets/images/favicon.png" alt="/">
-                                        </div>
                                         <div class="card-info">
-                                            <h6 class="title">Red Cross</h6>
-                                            <span class="location">
-                                                info@redcross.com <br>
-                                                0712345678
-                                            </span>
+                                            <h6 class="title text-danger">No Response Services Available </h6>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            <?php } ?>
 
                         </div>
                         <!-- Recent Jobs End -->
