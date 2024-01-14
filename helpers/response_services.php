@@ -125,6 +125,48 @@ if (isset($_POST['Update_Emergency_Service'])) {
 }
 
 //Delete Response Service
+if (isset($_POST['Delete_Service'])) {
+    $response_service_login_id = mysqli_real_escape_string($mysqli, $_POST['response_service_login_id']);
+
+    //Delete Response Service
+    $delete_sql = mysqli_query(
+        $mysqli,
+        "DELETE FROM login WHERE login_id = '{$response_service_login_id}'"
+    );
+
+    if ($delete_sql) {
+        $_SESSION['success'] = "Response Service Deleted Successfully";
+        header('Location: emergency_services');
+        exit;
+    } else {
+        $err = "Response Service Delete Failed, Try Again";
+    }
+}
 
 
 //Update Response Service Auth
+if (isset($_POST['Delete_Service'])) {
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+
+    //check if passwords match
+    if ($confirm_password != $new_password) {
+        $err = "Passwords Does Not Match";
+    } else {
+        //Persist
+        $update_sql = mysqli_query(
+            $mysqli,
+            "UPDATE login SET login_password = '{$new_password}' WHERE login_id = '{$login_id}'"
+        );
+
+        if ($update_sql) {
+            //$success = "Password Updated Successfully";
+            $_SESSION['success'] = "Password Updated Successfully";
+            header('Location: emergency_services');
+            exit;
+        } else {
+            $err = "Password Update Failed, Try Again";
+        }
+    }
+}
