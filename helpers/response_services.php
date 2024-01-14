@@ -101,7 +101,28 @@ if (isset($_POST['Add_Emergency_Service'])) {
 }
 
 //Update Response Service
+if (isset($_POST['Update_Emergency_Service'])) {
+    $response_service_id  = mysqli_real_escape_string($mysqli, $_POST['response_service_id']);
+    $response_service_name = mysqli_real_escape_string($mysqli, $_POST['response_service_name']);
+    $response_service_contact_person_name = mysqli_real_escape_string($mysqli, $_POST['response_service_contact_person_name']);
+    $response_service_contact_person_phone = mysqli_real_escape_string($mysqli, $_POST['response_service_contact_person_phone']);
+    $response_service_location = mysqli_real_escape_string($mysqli, $_POST['response_service_location']);
+    $response_service_description = mysqli_real_escape_string($mysqli, $_POST['response_service_description']);
 
+    //Update Response Service
+    $update_sql = mysqli_query(
+        $mysqli,
+        "UPDATE response_services SET response_service_name = '{$response_service_name}', response_service_contact_person_name = '{$response_service_contact_person_name}',
+        response_service_contact_person_phone = '{$response_service_contact_person_phone}', response_service_location = '{$response_service_location}',
+        response_service_description = '{$response_service_description}' WHERE response_service_id = '{$response_service_id}'"
+    );
+
+    if ($update_sql) {
+        $success = "Response Service Updated Successfully";
+    } else {
+        $err = "Response Service Update Failed, Try Again";
+    }
+}
 
 //Delete Response Service
 
