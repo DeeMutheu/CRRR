@@ -157,7 +157,7 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Email <span class="text-danger">*</span></label>
-                                                <input type="number" name="login_email" value="<?php echo $user['login_email']; ?>" required class="form-control">
+                                                <input type="text" name="login_email" value="<?php echo $user['login_email']; ?>" required class="form-control">
                                             </div>
                                         </div>
                                         <br>

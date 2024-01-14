@@ -60,9 +60,31 @@
  */
 
 
- /* Add Road User */
+/* Add Road User */
 
- /* Update User */
+/* Update User */
+if (isset($_POST['Update_Profile'])) {
+    $user_name = mysqli_real_escape_string($mysqli, $_POST['user_name']);
+    $user_contact_phone = mysqli_real_escape_string($mysqli, $_POST['user_contact_phone']);
+    $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
+    $user_login_id = mysqli_real_escape_string($mysqli, $_POST['user_login_id']);
+
+    //Update user
+    $update_sql = mysqli_query(
+        $mysqli,
+        "UPDATE road_users SET user_name = '{$user_name}', user_contact_phone = '{$user_contact_phone}' WHERE user_login_id = '{$user_login_id}'"
+    );
+    $update_email_sql = mysqli_query(
+        $mysqli,
+        "UPDATE login_users SET login_email = '{$login_email}' WHERE user_login_id = '{$user_login_id}'"
+    );
+
+    if ($update_sql && $update_email_sql) {
+        $success = "Profile Updated Successfully";
+    } else {
+        $err = "Profile Update Failed, Try Again";
+    }
+}
  /* Delete User */
 
  /* Update Auth */
