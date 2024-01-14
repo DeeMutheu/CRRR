@@ -145,7 +145,7 @@ if (isset($_POST['Delete_Service'])) {
 
 
 //Update Response Service Auth
-if (isset($_POST['Delete_Service'])) {
+if (isset($_POST['Update_Auth'])) {
     $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
     $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
     $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
