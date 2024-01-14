@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2024 at 05:33 PM
+-- Generation Time: Jan 14, 2024 at 08:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -45,6 +45,23 @@ CREATE TABLE `locations` (
   `location_name` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`location_id`, `location_name`) VALUES
+(2, 'Kimathi Way'),
+(3, 'Kenyatta Road'),
+(4, 'Naivas Gakere Street'),
+(5, 'Chania Bridge'),
+(6, 'Bantu Africa Resort'),
+(7, 'Giakanga Shopping Center '),
+(8, 'Dedan Kimathi University'),
+(10, 'Manjengo'),
+(11, 'Ring Road'),
+(12, 'King\'og\'o'),
+(13, 'Temple Road');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +74,13 @@ CREATE TABLE `login` (
   `login_password` varchar(200) NOT NULL,
   `login_rank` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`login_id`, `login_email`, `login_password`, `login_rank`) VALUES
+(1, 'martdevelopers254@gmail.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Road User');
 
 -- --------------------------------------------------------
 
@@ -99,10 +123,16 @@ CREATE TABLE `road_incidents` (
 CREATE TABLE `road_users` (
   `user_id` int(200) NOT NULL,
   `user_login_id` int(200) NOT NULL,
-  `user_fname` varchar(200) NOT NULL,
-  `user_lname` varchar(200) NOT NULL,
+  `user_name` varchar(200) NOT NULL,
   `user_contact_phone` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `road_users`
+--
+
+INSERT INTO `road_users` (`user_id`, `user_login_id`, `user_name`, `user_contact_phone`) VALUES
+(1, 1, 'Martin Mbithi', '0740847563');
 
 --
 -- Indexes for dumped tables
@@ -164,13 +194,13 @@ ALTER TABLE `emergency_interactions`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `location_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `location_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `login_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `login_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `response_services`
@@ -188,7 +218,7 @@ ALTER TABLE `road_incidents`
 -- AUTO_INCREMENT for table `road_users`
 --
 ALTER TABLE `road_users`
-  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
