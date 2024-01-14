@@ -128,7 +128,9 @@ if (isset($_POST['Delete_User'])) {
     $delete_login_sql = mysqli_query($mysqli, "DELETE FROM login WHERE login_id = '{$user_login_id}'");
 
     if ($delete_login_sql) {
-        $success = "User Deleted Successfully";
+        $_SESSION['success'] = "User Deleted Successfully";
+        header('Location: road_users');
+        exit;
     } else {
         $err = "User Delete Failed, Try Again";
     }
