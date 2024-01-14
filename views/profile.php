@@ -186,7 +186,7 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Confirm Password <span class="text-danger">*</span></label>
-                                                <input type="pasword" name="confirm_password" required class="form-control">
+                                                <input type="password" name="confirm_password" required class="form-control">
                                             </div>
                                         </div>
                                         <br>

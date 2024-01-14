@@ -147,7 +147,7 @@ if (isset($_POST['Update_Auth'])) {
         //Persist
         $update_sql = mysqli_query(
             $mysqli,
-            "UPDATE login SET login_passwrd = '{$new_password}' WHERE login_id = '{$login_id}'"
+            "UPDATE login SET login_password = '{$new_password}' WHERE login_id = '{$login_id}'"
         );
 
         if ($update_sql) {
