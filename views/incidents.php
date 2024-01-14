@@ -61,6 +61,7 @@
 session_start();
 require_once('../config/config.php');
 require_once('../config/checklogin.php');
+require_once('../helpers/incidents.php');
 require_once('../partials/head.php');
 ?>
 
@@ -145,23 +146,46 @@ require_once('../partials/head.php');
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
-                                                <label class="text-center">Type <span class="text-danger">*</span></label>
-                                                <select type="text" name="road_incident_type" required class="form-control">
-                                                    <option value="">Select type</option>
-                                                    <option value="Road Accident">Road Accident</option>
-                                                    <option value="Fire Accident">Fire Accident</option>
-                                                    <option value="Medical Emergency">Medical Emergency</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
+                                                <?php
+                                                $users_sql = mysqli_query(
+                                                    $mysqli,
+                                                    "SELECT * FROM road_users u
+                                                    INNER JOIN login l ON u.user_login_id = l.login_id
+                                                    WHERE l.login_id = '{$_SESSION['login_id']}'"
+                                                );
+                                                if (mysqli_num_rows($users_sql) > 0) {
+                                                    while ($user = mysqli_fetch_array($users_sql)) {
+                                                ?>
+                                                        <input type="hidden" name="road_incident_user_id" value="<?php echo $user['user_id']; ?>
+                                                <?php }
+                                                } ?>
+                                                <label class=" text-center">Type <span class="text-danger">*</span></label>
+                                                        <select type="text" name="road_incident_type" required class="form-control">
+                                                            <option value="">Select type</option>
+                                                            <option value="Road Accident">Road Accident</option>
+                                                            <option value="Fire Accident">Fire Accident</option>
+                                                            <option value="Medical Emergency">Medical Emergency</option>
+                                                            <option value="Other">Other</option>
+                                                        </select>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label class="text-center">Location <span class="text-danger">*</span></label>
                                                 <select type="text" name="road_incident_location_id" required class="form-control">
-                                                    <option value="">Select location</option>
+                                                    <option value="">Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
+                                                    $locations_sql = mysqli_query(
+                                                        $mysqli,
+                                                        "SELECT * FROM locations"
+                                                    );
+                                                    if (mysqli_num_rows($locations_sql) > 0) {
+                                                        while ($locations = mysqli_fetch_array($locations_sql)) {
                                                     ?>
-                                                    <?php ?>
+                                                            <option value="<?php echo $locations['location_id']; ?>">
+                                                                <?php echo $locations['location_name']; ?>
+                                                            </option>
+                                                    <?php }
+                                                    } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
