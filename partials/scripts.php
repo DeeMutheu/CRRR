@@ -4,7 +4,7 @@
 <script src="../assets/js/settings.js"></script>
 <script src="../assets/js/dz.carousel.js"></script><!-- Swiper -->
 <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
-<script src="../assets/vendor/select2/js/select2.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mobius1/selectr@latest/dist/selectr.min.js" type="text/javascript"></script>
 <script src="../assets/vendor/sweetalert2/sweetalert2.min.js"></script>
 <script src="../assets/vendor/toastr/toastr.min.js"></script>
 <!-- Prevent Double Submission -->
@@ -13,6 +13,16 @@
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
+
+    /* Select 2 */
+    /* Selectr */
+    $(document).ready(function() {
+        new Selectr('.select2', {
+            searchable: true,
+            width: 300,
+            placeholder: 'Select an option'
+        });
+    });
     /* Filter  */
     function FilterFunction() {
         let input = document.getElementById('search').value

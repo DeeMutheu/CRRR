@@ -229,10 +229,9 @@ require_once('../partials/head.php');
                                                     <div class="item-inner">
                                                         <div class="item-title-row">
                                                             <div class="item-subtitle text-danger"><?php echo date('d M Y g:ia', strtotime($incidents['road_incident_date_reported'])); ?></div>
-                                                            <h6 class="item-title"><a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?></a></h6>
-                                                        </div>
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="item-price"><?php echo $incidents['location_name']; ?></div>
+                                                            <h6 class="item-title">
+                                                                <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?> At <?php echo $incidents['location_name']; ?></a>
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -25,7 +25,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/select2/css/select2.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/mobius1/selectr@latest/dist/selectr.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../assets/vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="../assets/vendor/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">

@@ -235,11 +235,10 @@ require_once('../partials/head.php');
                                                 <a href="incident" class="item-media"><img src="../assets/images/welcome/incident.png" width="80" alt="logo"></a>
                                                 <div class="item-inner">
                                                     <div class="item-title-row">
-                                                        <div class="item-subtitle text-danger"><?php echo $incidents['road_incident_date_reported']; ?></div>
-                                                        <h6 class="item-title"><a href="incident"><?php echo $incidents['road_incident_type']; ?></a></h6>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="item-price"><?php echo $incidents['location_name']; ?></div>
+                                                        <div class="item-subtitle text-danger"><?php echo date('d M Y g:ia', strtotime($incidents['road_incident_date_reported'])); ?></div>
+                                                        <h6 class="item-title">
+                                                            <a href="incident"><?php echo $incidents['road_incident_type']; ?></a> At <?php echo $incidents['location_name']; ?>
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>
