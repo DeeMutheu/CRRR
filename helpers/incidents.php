@@ -94,11 +94,16 @@ if (isset($_POST['RespondIncident'])) {
     $add_sql = mysqli_query(
         $mysqli,
         "INSERT INTO emergency_interactions (emergency_interaction_incident_id, emergency_interaction_service_id, emergency_interaction_details)
-        VALUES('{$emergency_interaction_incident_id}', '{$emergency_interaction_service_id}', '{$emergency_interaction_details}');
-        UPDATE road_incidents SET road_incident_response_service_id = '{$emergency_interaction_service_id}' WHERE  road_incident_id = '{$emergency_interaction_incident_id}'"
+        VALUES('{$emergency_interaction_incident_id}', '{$emergency_interaction_service_id}', '{$emergency_interaction_details}')"
     );
 
-    if ($add_sql) {
+    $update_sql = mysqli_query(
+        $mysqli,
+        "UPDATE road_incidents SET road_incident_response_service_id = '{$emergency_interaction_service_id}' 
+        WHERE  road_incident_id = '{$emergency_interaction_incident_id}'"
+    );
+
+    if ($add_sql && $update_sql) {
         $success = "Incident Responded Successfully";
     } else {
         $err = "Error Responding Incident";
