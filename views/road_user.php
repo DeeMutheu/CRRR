@@ -109,7 +109,7 @@ require_once('../partials/head.php');
             $mysqli,
             "SELECT * FROM road_users u
             INNER JOIN login l ON u.user_login_id = l.login_id
-            AND u.user_login_id = '{$_GET['view']}'"
+            AND u.user_id = '{$_GET['view']}'"
         );
         if (mysqli_num_rows($users_sql) > 0) {
             while ($user = mysqli_fetch_array($users_sql)) {
