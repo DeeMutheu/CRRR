@@ -142,19 +142,19 @@ require_once('../partials/head.php');
                                 <div class="modal-body">
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label class="text-center">Full names <span class="text-danger">*</span></label>
                                                 <input type="text" name="user_name" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Contacts <span class="text-danger">*</span></label>
                                                 <input type="number" name="user_contact_phone" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Email <span class="text-danger">*</span></label>
                                                 <input type="email" name="login_email" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Login Password <span class="text-danger">*</span></label>
                                                 <input type="password" name="login_password" required class="form-control">
                                             </div>

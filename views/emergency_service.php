@@ -145,24 +145,24 @@ require_once('../partials/head.php');
                                 <div class="card-body">
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label class="text-center">Emergency service name <span class="text-danger">*</span></label>
                                                 <input type="hidden" name="response_service_id" value="<?php echo $service['response_service_id']; ?>" required class="form-control">
                                                 <input type="text" name="response_service_name" value="<?php echo $service['response_service_name']; ?>" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Contact person name <span class="text-danger">*</span></label>
                                                 <input type="text" name="response_service_contact_person_name" value="<?php echo $service['response_service_contact_person_name']; ?>" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Contact person phone number <span class="text-danger">*</span></label>
                                                 <input type="number" name="response_service_contact_person_phone" value="<?php echo $service['response_service_contact_person_phone']; ?>" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Location <span class="text-danger">*</span></label>
                                                 <input type="text" name="response_service_location" required value="<?php echo $service['response_service_location']; ?>" class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Details <span class="text-danger">*</span></label>
                                                 <textarea name="response_service_description" required class="form-control" rows="2"><?php echo $service['response_service_description']; ?></textarea>
                                             </div>

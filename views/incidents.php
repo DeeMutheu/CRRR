@@ -145,7 +145,7 @@ require_once('../partials/head.php');
                                 <div class="modal-body">
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <?php
                                                 $users_sql = mysqli_query(
                                                     $mysqli,
@@ -169,9 +169,9 @@ require_once('../partials/head.php');
                                                     <option value="Other">Other</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label class="text-center">Location <span class="text-danger">*</span></label>
-                                                <select type="text" name="road_incident_location_id" required class="form-control">
+                                                <select type="text" name="road_incident_location_id" required class="form-control select2">
                                                     <option value="">Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
@@ -189,7 +189,7 @@ require_once('../partials/head.php');
                                                     } ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Incident description <span class="text-danger">*</span></label>
                                                 <textarea name="road_incident_description" required class="form-control"></textarea>
                                             </div>

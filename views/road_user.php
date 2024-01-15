@@ -143,16 +143,16 @@ require_once('../partials/head.php');
                                 <div class="card-body">
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label class="text-center">Full names <span class="text-danger">*</span></label>
                                                 <input type="hidden" name="user_login_id" value="<?php echo $user['user_login_id']; ?>" required class="form-control">
                                                 <input type="text" name="user_name" value="<?php echo $user['user_name']; ?>" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Contacts <span class="text-danger">*</span></label>
                                                 <input type="number" name="user_contact_phone" value="<?php echo $user['user_contact_phone']; ?>" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Email <span class="text-danger">*</span></label>
                                                 <input type="text" name="login_email" value="<?php echo $user['login_email']; ?>" required class="form-control">
                                             </div>
@@ -176,12 +176,12 @@ require_once('../partials/head.php');
                                 <div class="card-body">
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="form-row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>New Password <span class="text-danger">*</span></label>
                                                 <input type="hidden" name="login_id" value="<?php echo $user['login_id']; ?>" required class="form-control">
                                                 <input type="password" name="new_password" required class="form-control">
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label>Confirm Password <span class="text-danger">*</span></label>
                                                 <input type="password" name="confirm_password" required class="form-control">
                                             </div>
