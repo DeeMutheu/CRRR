@@ -164,54 +164,57 @@ require_once('../partials/head.php');
                     <!-- Dashboard Area -->
                     <div class="dashboard-area">
                         <!-- Features -->
-                        <div class="features-box">
-                            <div class="row m-b20 g-3">
-                                <div class="col">
-                                    <div class="card card-bx card-content bg-secondary">
-                                        <div class="card-body">
-                                            <div class="card-info">
-                                                <h4 class="title"><?php echo $accepted_incidents; ?></h4>
-                                                <p>Accepted Incidents</p>
+                        <?php if ($_SESSION['login_rank'] == 'Admin') { ?>
+                            <div class="features-box">
+                                <div class="row m-b20 g-3">
+                                    <div class="col">
+                                        <div class="card card-bx card-content bg-secondary">
+                                            <div class="card-body">
+                                                <div class="card-info">
+                                                    <h4 class="title"><?php echo $accepted_incidents; ?></h4>
+                                                    <p>Accepted Incidents</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col">
-                                    <div class="card card-bx card-content bg-secondary">
-                                        <div class="card-body">
-                                            <div class="card-info">
-                                                <h4 class="title"><?php echo $declined_incidents; ?></h4>
-                                                <p>Declined Incidents</p>
+                                    <div class="col">
+                                        <div class="card card-bx card-content bg-secondary">
+                                            <div class="card-body">
+                                                <div class="card-info">
+                                                    <h4 class="title"><?php echo $declined_incidents; ?></h4>
+                                                    <p>Declined Incidents</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-b20 g-3">
+                                    <div class="col">
+                                        <div class="card card-bx card-content bg-secondary">
+                                            <div class="card-body">
+                                                <div class="card-info">
+                                                    <h4 class="title"><?php echo $users; ?></h4>
+                                                    <p>Road users</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card card-bx card-content bg-secondary">
+                                            <div class="card-body">
+                                                <div class="card-info">
+                                                    <h4 class="title"><?php echo $response_services; ?></h4>
+                                                    <p>Response Services</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-b20 g-3">
-                                <div class="col">
-                                    <div class="card card-bx card-content bg-secondary">
-                                        <div class="card-body">
-                                            <div class="card-info">
-                                                <h4 class="title"><?php echo $users; ?></h4>
-                                                <p>Road users</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card card-bx card-content bg-secondary">
-                                        <div class="card-body">
-                                            <div class="card-info">
-                                                <h4 class="title"><?php echo $response_services; ?></h4>
-                                                <p>Response Services</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                         <!-- Features End -->
+
 
                         <!-- Recent Jobs -->
                         <div class="title-bar">
