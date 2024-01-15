@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2024 at 08:01 AM
+-- Generation Time: Jan 15, 2024 at 01:23 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -33,6 +33,14 @@ CREATE TABLE `emergency_interactions` (
   `emergency_interaction_service_id` int(200) NOT NULL,
   `emergency_interaction_details` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `emergency_interactions`
+--
+
+INSERT INTO `emergency_interactions` (`emergency_interaction_id`, `emergency_interaction_incident_id`, `emergency_interaction_service_id`, `emergency_interaction_details`) VALUES
+(1, 1, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+(2, 2, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
 
 -- --------------------------------------------------------
 
@@ -80,7 +88,11 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`login_id`, `login_email`, `login_password`, `login_rank`) VALUES
-(1, 'martdevelopers254@gmail.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Road User');
+(1, 'martdevelopers254@gmail.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Admin'),
+(2, 'info@redcross.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Response Service'),
+(3, 'info@aar.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Response Service'),
+(4, 'stjohns@mail.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Response Service'),
+(5, 'james@mail.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Road User');
 
 -- --------------------------------------------------------
 
@@ -98,6 +110,15 @@ CREATE TABLE `response_services` (
   `response_service_description` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `response_services`
+--
+
+INSERT INTO `response_services` (`response_service_id`, `response_service_login_id`, `response_service_name`, `response_service_contact_person_name`, `response_service_contact_person_phone`, `response_service_location`, `response_service_description`) VALUES
+(1, 2, 'Red Cross', 'John Doe', '0712679084', 'Nairobi Kenya', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+(2, 3, 'AAR', 'Jane Doe', '076574392344', 'Machakos', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+(3, 4, 'St Johns Ambulance', 'Joephas Doe', '0755463182', 'Nairobi', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +134,15 @@ CREATE TABLE `road_incidents` (
   `road_incident_date_reported` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
   `road_incident_response_service_id` int(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `road_incidents`
+--
+
+INSERT INTO `road_incidents` (`road_incident_id`, `road_incident_user_id`, `road_incident_type`, `road_incident_location_id`, `road_incident_description`, `road_incident_date_reported`, `road_incident_response_service_id`) VALUES
+(1, 1, 'Road Accident', 4, 'orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2024-01-15 06:20:54.761957', 1),
+(2, 1, 'Fire Accident', 8, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2024-01-15 06:54:46.428597', 1),
+(3, 2, 'Road Accident', 4, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2024-01-15 10:16:38.387018', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,7 +162,8 @@ CREATE TABLE `road_users` (
 --
 
 INSERT INTO `road_users` (`user_id`, `user_login_id`, `user_name`, `user_contact_phone`) VALUES
-(1, 1, 'Martin Mbithi', '0740847563');
+(1, 1, 'Martin Mbithi', '0740847563'),
+(2, 5, 'James Doe', '0865342356');
 
 --
 -- Indexes for dumped tables
@@ -188,7 +219,7 @@ ALTER TABLE `road_users`
 -- AUTO_INCREMENT for table `emergency_interactions`
 --
 ALTER TABLE `emergency_interactions`
-  MODIFY `emergency_interaction_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `emergency_interaction_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `locations`
@@ -200,25 +231,25 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `login_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `login_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `response_services`
 --
 ALTER TABLE `response_services`
-  MODIFY `response_service_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `response_service_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `road_incidents`
 --
 ALTER TABLE `road_incidents`
-  MODIFY `road_incident_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `road_incident_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `road_users`
 --
 ALTER TABLE `road_users`
-  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
