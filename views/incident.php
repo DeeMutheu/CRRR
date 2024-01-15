@@ -162,41 +162,66 @@ require_once('../partials/head.php');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header border-0 pb-0">
-                                        <h5 class="card-title">Emergency Service Responded</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            Name: <?php echo $response_service['response_service_name']; ?><br>
-                                            Contact Person Name: <?php echo $response_service['response_service_contact_person_name']; ?><br>
-                                            Contact Person Phone: <?php echo $response_service['response_service_contact_person_phone']; ?><br>
+                            <?php
+                            /* Get Interactions */
+                            $interactions_sql = mysqli_query(
+                                $mysqli,
+                                "SELECT * FROM emergency_interactions ei
+                                INNER JOIN response_services rs ON rs.response_service_id = ei.emergency_interaction_service_id
+                                WHERE ei.emergency_interaction_incident_id = '{$_GET['view']}'"
+                            );
+                            if (mysqli_num_rows($interactions_sql) > 0) {
+                                while ($response_service = mysqli_fetch_array($interactions_sql)) {
+                            ?>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header border-0 pb-0">
+                                                <h5 class="card-title">Emergency Service Responded</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    Name: <?php echo $response_service['response_service_name']; ?><br>
+                                                    Contact Person Name: <?php echo $response_service['response_service_contact_person_name']; ?><br>
+                                                    Contact Person Phone: <?php echo $response_service['response_service_contact_person_phone']; ?><br>
 
-                                        </p>
-                                        <p>Comments / Remarks</p>
-                                        <p class="card-text" align="justify">
-                                            <?php echo $response_service['emergency_interaction_details']; ?>
-                                        </p>
+                                                </p>
+                                                <p>Comments / Remarks</p>
+                                                <p class="card-text" align="justify">
+                                                    <?php echo $response_service['emergency_interaction_details']; ?>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
+                            <?php }
+                            } ?>
                         </div>
                     </div>
                 </div>
                 <!-- Page Content End-->
+                <?php
+                /* Only show this to admin and emergency service */
+                if ($_SESSION['login_rank'] == 'Admin') { ?>
 
-
-                <!-- Footer -->
-                <div class="footer fixed bg-white">
-                    <div class="container">
-                        <div class="footer-btn d-flex align-items-center">
-                            <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
+                    <!-- Footer -->
+                    <div class="footer fixed bg-white">
+                        <div class="container">
+                            <div class="footer-btn d-flex align-items-center">
+                                <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Footer End -->
+                    <!-- Footer End -->
+                <?php } else if ($_SESSION['login_rank'] == 'Response Service') { ?>
+                    <!-- Footer -->
+                    <div class="footer fixed bg-white">
+                        <div class="container">
+                            <div class="footer-btn d-flex align-items-center">
+                                <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#Add_Modal">Respond</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer End -->
+                <?php } ?>
 
                 <!-- Respond Modals -->.
                 <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,7 +230,24 @@ require_once('../partials/head.php');
                             <form method="POST">
                                 <div class="modal-body text-center text-dark">
                                     <img src="../assets/images/favicon.png" width="90"><br>
-                                    <h4>Repond to this Incident</h4>
+                                    <h4>Select response service to respond to this incident</h4>
+                                    <select class="form-control" name="emergency_interaction_service_id">
+                                        <option value="">Select Response Service</option>
+                                        <?php
+                                        //Get Response Services
+                                        $services_sql = mysqli_query(
+                                            $mysqli,
+                                            "SELECT * FROM response_services  rs INNER JOIN login l ON rs.response_service_login_id  = l.login_id"
+                                        );
+                                        if (mysqli_num_rows($services_sql) > 0) {
+                                            while ($services = mysqli_fetch_array($services_sql)) {
+                                        ?>
+                                                <option class="form-control" value="<?php echo $services['response_service_id']; ?>"><?php echo $services['response_service_name']; ?></option>
+                                        <?php }
+                                        } ?>
+                                    </select>
+                                    <textarea class="text-control" name="emergency_interaction_details" placeholder="Give comments"></textarea>
+                                    <hr>
                                     <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No, Decline</button>
                                     <input type="submit" name="RespondIncident" value="Yes, Respond" class="text-center btn btn-success btn-sm">
                                 </div>
