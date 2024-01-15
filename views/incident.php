@@ -200,29 +200,32 @@ require_once('../partials/head.php');
                 </div>
                 <!-- Page Content End-->
                 <?php
-                /* Only show this to admin and emergency service */
-                if ($_SESSION['login_rank'] == 'Admin') { ?>
+                /* Show This Link If The  Incident Has Not Been Responded To */
+                if ($response_service['road_incident_response_service_id'] == '') {
+                    /* Only show this to admin and emergency service */
+                    if ($_SESSION['login_rank'] == 'Admin') { ?>
 
-                    <!-- Footer -->
-                    <div class="footer fixed bg-white">
-                        <div class="container">
-                            <div class="footer-btn d-flex align-items-center">
-                                <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
+                        <!-- Footer -->
+                        <div class="footer fixed bg-white">
+                            <div class="container">
+                                <div class="footer-btn d-flex align-items-center">
+                                    <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Footer End -->
-                <?php } else if ($_SESSION['login_rank'] == 'Response Service') { ?>
-                    <!-- Footer -->
-                    <div class="footer fixed bg-white">
-                        <div class="container">
-                            <div class="footer-btn d-flex align-items-center">
-                                <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#Add_Modal">Respond</button>
+                        <!-- Footer End -->
+                    <?php } else if ($_SESSION['login_rank'] == 'Response Service') { ?>
+                        <!-- Footer -->
+                        <div class="footer fixed bg-white">
+                            <div class="container">
+                                <div class="footer-btn d-flex align-items-center">
+                                    <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#Add_Modal">Respond</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Footer End -->
-                <?php } ?>
+                        <!-- Footer End -->
+                <?php }
+                } ?>
 
                 <!-- Respond Modals -->.
                 <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
