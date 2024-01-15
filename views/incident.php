@@ -162,6 +162,26 @@ require_once('../partials/head.php');
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">Emergency Service Responded</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            Name: <?php echo $response_service['response_service_name']; ?><br>
+                                            Contact Person Name: <?php echo $response_service['response_service_contact_person_name']; ?><br>
+                                            Contact Person Phone: <?php echo $response_service['response_service_contact_person_phone']; ?><br>
+
+                                        </p>
+                                        <p>Comments / Remarks</p>
+                                        <p class="card-text" align="justify">
+                                            <?php echo $response_service['emergency_interaction_details']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
