@@ -77,6 +77,7 @@ require_once('../partials/head.php');
             $mysqli,
             "SELECT * FROM road_incidents i
             INNER JOIN locations l ON l.location_id = i.road_incident_location_id
+            INNER JOIN road_users u ON u.user_id = i.road_incident_user_id
             WHERE i.road_incident_id = '{$_GET['view']}'"
         );
         if (mysqli_num_rows($incidents_sql) > 0) {
@@ -141,8 +142,8 @@ require_once('../partials/head.php');
                                         <h5 class="card-title">Description</h5>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff <br> sections. The bedding was hardly able to cover it and seemed ready to
-                                            slide off any moment.
+                                        <p class="card-text" align="justify">
+                                            <?php echo $incident['road_incident_description']; ?>
                                         </p>
                                     </div>
                                 </div>
@@ -154,9 +155,8 @@ require_once('../partials/head.php');
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text">
-                                            Name: James Doe <br>
-                                            Email: jamesdoe@gmail.com <br>
-                                            Contacts: +254739876765
+                                            Name: <?php echo $incident['user_name']; ?><br>
+                                            Contacts: <?php echo $incident['user_contact_phone']; ?>
                                         </p>
                                     </div>
                                 </div>
