@@ -186,7 +186,7 @@ require_once('../partials/head.php');
                                                     Contact Person Phone: <?php echo $response_service['response_service_contact_person_phone']; ?><br>
 
                                                 </p>
-                                                <p>Comments / Remarks</p>
+                                                <p><b>Comments / Remarks</b></p>
                                                 <p class="card-text" align="justify">
                                                     <?php echo $response_service['emergency_interaction_details']; ?>
                                                 </p>
@@ -201,7 +201,8 @@ require_once('../partials/head.php');
                 <!-- Page Content End-->
                 <?php
                 /* Show This Link If The  Incident Has Not Been Responded To */
-                if ($response_service['road_incident_response_service_id'] == '') {
+                if ($incident['road_incident_response_service_id'] != '') {
+                } else {
                     /* Only show this to admin and emergency service */
                     if ($_SESSION['login_rank'] == 'Admin') { ?>
 
@@ -224,8 +225,10 @@ require_once('../partials/head.php');
                             </div>
                         </div>
                         <!-- Footer End -->
+
                 <?php }
-                } ?>
+                }
+                ?>
 
                 <!-- Respond Modals -->.
                 <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
