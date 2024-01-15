@@ -72,118 +72,129 @@ require_once('../partials/head.php');
             <div class="spinner"></div>
         </div>
         <!-- Preloader end-->
+        <?php
+        $incidents_sql = mysqli_query(
+            $mysqli,
+            "SELECT * FROM road_incidents i
+            INNER JOIN locations l ON l.location_id = i.road_incident_location_id
+            WHERE i.road_incident_id = '{$_GET['view']}'"
+        );
+        if (mysqli_num_rows($incidents_sql) > 0) {
+            while ($incident = mysqli_fetch_array($incidents_sql)) {
+        ?>
+                <!-- Header -->
+                <header class="header">
+                    <div class="main-bar">
+                        <div class="container">
+                            <div class="header-content">
+                                <div class="left-content">
+                                    <a href="javascript:void(0);" class="back-btn">
+                                        <svg width="18" height="18" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.03033 0.46967C9.2966 0.735936 9.3208 1.1526 9.10295 1.44621L9.03033 1.53033L2.561 8L9.03033 14.4697C9.2966 14.7359 9.3208 15.1526 9.10295 15.4462L9.03033 15.5303C8.76406 15.7966 8.3474 15.8208 8.05379 15.6029L7.96967 15.5303L0.96967 8.53033C0.703403 8.26406 0.679197 7.8474 0.897052 7.55379L0.96967 7.46967L7.96967 0.46967C8.26256 0.176777 8.73744 0.176777 9.03033 0.46967Z" fill="#a19fa8" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="mid-content">
+                                    <h5 class="mb-0">Incident Details</h5>
+                                </div>
+                                <div class="right-content">
+                                    <div class="form-check checkmark">
+                                        <input class="form-check-input" type="checkbox" id="flexCheckDefault2">
+                                        <label class="form-check-label" for="flexCheckDefault2">
+                                            <svg width="18" height="18" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.6783 1H16.6783C16.9768 0.999982 17.2739 1.06264 17.5529 1.18611L17.9576 0.271637L17.5529 1.18611C17.8321 1.30966 18.0895 1.49246 18.3084 1.72703C18.5274 1.96173 18.7032 2.24332 18.823 2.55692C18.9427 2.87058 19.0033 3.20813 18.9999 3.54952L18.9998 3.54952V3.55952L18.9998 23.8961L18.9998 23.9019C19.0011 24.125 18.9405 24.3396 18.8309 24.5186C18.7216 24.6971 18.5711 24.8286 18.4049 24.9058L18.3955 24.9102L18.3861 24.9148C18.2371 24.9877 18.0756 25.0108 17.9195 24.9851C17.763 24.9594 17.6092 24.884 17.4801 24.7588L17.4744 24.7533L17.4686 24.7479L11.1894 18.8485L11.1702 18.8305L11.1501 18.8135C10.8309 18.5438 10.4257 18.3902 10 18.3902C9.57426 18.3902 9.16907 18.5438 8.8499 18.8135L8.82979 18.8305L8.8106 18.8485L2.53137 24.7479L2.5225 24.7562L2.51384 24.7648C2.38709 24.8898 2.23541 24.9648 2.08123 24.9902C1.9275 25.0155 1.76832 24.9921 1.62181 24.9187L1.60854 24.912L1.59509 24.9058C1.42893 24.8286 1.27843 24.6971 1.16913 24.5186C1.05954 24.3396 0.998878 24.125 1.00017 23.9019H1.00019V23.8961V3.55952H1.00024L1.00014 3.54943C0.99322 2.86376 1.24356 2.21365 1.67989 1.73936C2.11277 1.26881 2.69045 1.01072 3.28296 1H16.6783Z" stroke="#40189D" stroke-width="2"></path>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- Header End -->
 
-        <!-- Header -->
-        <header class="header">
-            <div class="main-bar">
-                <div class="container">
-                    <div class="header-content">
-                        <div class="left-content">
-                            <a href="javascript:void(0);" class="back-btn">
-                                <svg width="18" height="18" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.03033 0.46967C9.2966 0.735936 9.3208 1.1526 9.10295 1.44621L9.03033 1.53033L2.561 8L9.03033 14.4697C9.2966 14.7359 9.3208 15.1526 9.10295 15.4462L9.03033 15.5303C8.76406 15.7966 8.3474 15.8208 8.05379 15.6029L7.96967 15.5303L0.96967 8.53033C0.703403 8.26406 0.679197 7.8474 0.897052 7.55379L0.96967 7.46967L7.96967 0.46967C8.26256 0.176777 8.73744 0.176777 9.03033 0.46967Z" fill="#a19fa8" />
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="mid-content">
-                            <h5 class="mb-0">Incident Details</h5>
-                        </div>
-                        <div class="right-content">
-                            <div class="form-check checkmark">
-                                <input class="form-check-input" type="checkbox" id="flexCheckDefault2">
-                                <label class="form-check-label" for="flexCheckDefault2">
-                                    <svg width="18" height="18" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M16.6783 1H16.6783C16.9768 0.999982 17.2739 1.06264 17.5529 1.18611L17.9576 0.271637L17.5529 1.18611C17.8321 1.30966 18.0895 1.49246 18.3084 1.72703C18.5274 1.96173 18.7032 2.24332 18.823 2.55692C18.9427 2.87058 19.0033 3.20813 18.9999 3.54952L18.9998 3.54952V3.55952L18.9998 23.8961L18.9998 23.9019C19.0011 24.125 18.9405 24.3396 18.8309 24.5186C18.7216 24.6971 18.5711 24.8286 18.4049 24.9058L18.3955 24.9102L18.3861 24.9148C18.2371 24.9877 18.0756 25.0108 17.9195 24.9851C17.763 24.9594 17.6092 24.884 17.4801 24.7588L17.4744 24.7533L17.4686 24.7479L11.1894 18.8485L11.1702 18.8305L11.1501 18.8135C10.8309 18.5438 10.4257 18.3902 10 18.3902C9.57426 18.3902 9.16907 18.5438 8.8499 18.8135L8.82979 18.8305L8.8106 18.8485L2.53137 24.7479L2.5225 24.7562L2.51384 24.7648C2.38709 24.8898 2.23541 24.9648 2.08123 24.9902C1.9275 25.0155 1.76832 24.9921 1.62181 24.9187L1.60854 24.912L1.59509 24.9058C1.42893 24.8286 1.27843 24.6971 1.16913 24.5186C1.05954 24.3396 0.998878 24.125 1.00017 23.9019H1.00019V23.8961V3.55952H1.00024L1.00014 3.54943C0.99322 2.86376 1.24356 2.21365 1.67989 1.73936C2.11277 1.26881 2.69045 1.01072 3.28296 1H16.6783Z" stroke="#40189D" stroke-width="2"></path>
-                                    </svg>
-                                </label>
+                <!-- Page Content -->
+                <div class="page-content bottom-content">
+                    <div class="content-body">
+                        <div class="container">
+                            <div class="border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="title"><?php echo $incident['road_incident_type']; ?></h5>
+                                        <span class="d-block mb-2 text-danger">Reported on <?php echo date('d M Y', strtotime($incident['road_incident_date_reported'])); ?> at <?php echo date('g:ia', strtotime($incident['road_incident_date_reported'])); ?> </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">Location : <?php echo $incident['location_name']; ?></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['location_name']; ?>&output=embed"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">Description</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff <br> sections. The bedding was hardly able to cover it and seemed ready to
+                                            slide off any moment.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">Reported By</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            Name: James Doe <br>
+                                            Email: jamesdoe@gmail.com <br>
+                                            Contacts: +254739876765
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- Header End -->
+                <!-- Page Content End-->
 
-        <!-- Page Content -->
-        <div class="page-content bottom-content">
-            <div class="content-body">
-                <div class="container">
-                    <div class="border-bottom">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="title">Tragic Road Accident</h5>
-                                <span class="d-block mb-2 text-danger">Reported on Jan 11 2023 at 1300HRS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header border-0 pb-0">
-                                <h5 class="card-title">Location</h5>
-                            </div>
-                            <div class="card-body">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.880508821434!2d36.821946314753!3d-1.286796999063547!2m3!1f0!2f39.99999863066117!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaf1b6a0b0b0b0b0b%3A0x9e0b0b0b0b0b0b0b!2sNairobi%20Hospital!5e0!3m2!1sen!2ske!4v1631717094379!5m2!1sen!2ske" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header border-0 pb-0">
-                                <h5 class="card-title">Description</h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff <br> sections. The bedding was hardly able to cover it and seemed ready to
-                                    slide off any moment.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header border-0 pb-0">
-                                <h5 class="card-title">Reported By</h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Name: James Doe <br>
-                                    Email: jamesdoe@gmail.com <br>
-                                    Contacts: +254739876765
-                                </p>
-                            </div>
+
+                <!-- Footer -->
+                <div class="footer fixed bg-white">
+                    <div class="container">
+                        <div class="footer-btn d-flex align-items-center">
+                            <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Page Content End-->
+                <!-- Footer End -->
 
-
-        <!-- Footer -->
-        <div class="footer fixed bg-white">
-            <div class="container">
-                <div class="footer-btn d-flex align-items-center">
-                    <button type="button" class="btn w-100 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Respond</button>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-        <!-- Respond Modals -->.
-        <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <form method="POST">
-                        <div class="modal-body text-center text-dark">
-                            <img src="../assets/images/favicon.png" width="90"><br>
-                            <h4>Repond to this Incident</h4>
-                            <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No, Decline</button>
-                            <input type="submit" name="RespondIncident" value="Yes, Respond" class="text-center btn btn-success btn-sm">
+                <!-- Respond Modals -->.
+                <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form method="POST">
+                                <div class="modal-body text-center text-dark">
+                                    <img src="../assets/images/favicon.png" width="90"><br>
+                                    <h4>Repond to this Incident</h4>
+                                    <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No, Decline</button>
+                                    <input type="submit" name="RespondIncident" value="Yes, Respond" class="text-center btn btn-success btn-sm">
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- End Modals -->
+                <!-- End Modals -->
+        <?php }
+        } ?>
     </div>
     <!--**********************************
     Scripts
