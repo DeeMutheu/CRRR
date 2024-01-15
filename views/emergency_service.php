@@ -136,89 +136,94 @@ require_once('../partials/head.php');
                             </div>
                             <p><?php echo $service['response_service_description']; ?></p>
                         </div>
-                        <hr>
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header border-0 pb-0">
-                                    <h5 class="card-title">Update Details</h5>
-                                </div>
-                                <div class="card-body">
-                                    <form method="post" enctype="multipart/form-data">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-12">
-                                                <label class="text-center">Emergency service name <span class="text-danger">*</span></label>
-                                                <input type="hidden" name="response_service_id" value="<?php echo $service['response_service_id']; ?>" required class="form-control">
-                                                <input type="text" name="response_service_name" value="<?php echo $service['response_service_name']; ?>" required class="form-control">
+                        <?php if ($_SESSION['login_rank'] == 'Admin') { ?>
+                            <hr>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">Update Details</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="post" enctype="multipart/form-data">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label class="text-center">Emergency service name <span class="text-danger">*</span></label>
+                                                    <input type="hidden" name="response_service_id" value="<?php echo $service['response_service_id']; ?>" required class="form-control">
+                                                    <input type="text" name="response_service_name" value="<?php echo $service['response_service_name']; ?>" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Contact person name <span class="text-danger">*</span></label>
+                                                    <input type="text" name="response_service_contact_person_name" value="<?php echo $service['response_service_contact_person_name']; ?>" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Contact person phone number <span class="text-danger">*</span></label>
+                                                    <input type="number" name="response_service_contact_person_phone" value="<?php echo $service['response_service_contact_person_phone']; ?>" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Location <span class="text-danger">*</span></label>
+                                                    <input type="text" name="response_service_location" required value="<?php echo $service['response_service_location']; ?>" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Details <span class="text-danger">*</span></label>
+                                                    <textarea name="response_service_description" required class="form-control" rows="2"><?php echo $service['response_service_description']; ?></textarea>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Contact person name <span class="text-danger">*</span></label>
-                                                <input type="text" name="response_service_contact_person_name" value="<?php echo $service['response_service_contact_person_name']; ?>" required class="form-control">
+                                            <br>
+                                            <div class="text-center">
+                                                <button name="Update_Emergency_Service" class="btn btn-primary" type="submit">
+                                                    <em class="icon ni ni-save"></em> Update
+                                                </button>
                                             </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Contact person phone number <span class="text-danger">*</span></label>
-                                                <input type="number" name="response_service_contact_person_phone" value="<?php echo $service['response_service_contact_person_phone']; ?>" required class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Location <span class="text-danger">*</span></label>
-                                                <input type="text" name="response_service_location" required value="<?php echo $service['response_service_location']; ?>" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Details <span class="text-danger">*</span></label>
-                                                <textarea name="response_service_description" required class="form-control" rows="2"><?php echo $service['response_service_description']; ?></textarea>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="text-center">
-                                            <button name="Update_Emergency_Service" class="btn btn-primary" type="submit">
-                                                <em class="icon ni ni-save"></em> Update
-                                            </button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header border-0 pb-0">
-                                    <h5 class="card-title">Authentication Details</h5>
-                                </div>
-                                <div class="card-body">
-                                    <form method="post" enctype="multipart/form-data">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-4">
-                                                <label>New Password <span class="text-danger">*</span></label>
-                                                <input type="hidden" name="login_id" value="<?php echo $service['login_id']; ?>" required class="form-control">
-                                                <input type="password" name="new_password" required class="form-control">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">Authentication Details</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="post" enctype="multipart/form-data">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>New Password <span class="text-danger">*</span></label>
+                                                    <input type="hidden" name="login_id" value="<?php echo $service['login_id']; ?>" required class="form-control">
+                                                    <input type="password" name="new_password" required class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Confirm Password <span class="text-danger">*</span></label>
+                                                    <input type="password" name="confirm_password" required class="form-control">
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-4">
-                                                <label>Confirm Password <span class="text-danger">*</span></label>
-                                                <input type="password" name="confirm_password" required class="form-control">
+                                            <br>
+                                            <div class="text-center">
+                                                <button name="Update_Auth" class="btn btn-primary" type="submit">
+                                                    <em class="icon ni ni-save"></em> Update authentication
+                                                </button>
                                             </div>
-                                        </div>
-                                        <br>
-                                        <div class="text-center">
-                                            <button name="Update_Auth" class="btn btn-primary" type="submit">
-                                                <em class="icon ni ni-save"></em> Update authentication
-                                            </button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
                     </div>
                 </div>
                 <!-- Page Content End-->
-                <!-- Footer -->
-                <div class="footer fixed bg-white">
-                    <div class="container">
-                        <div class="footer-btn d-flex align-items-center">
-                            <button type="button" class="btn w-100 btn-danger mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Delete Emergency Service</button>
+                <?php if ($_SESSION['login_rank'] == 'Admin') { ?>
+
+                    <!-- Footer -->
+                    <div class="footer fixed bg-white">
+                        <div class="container">
+                            <div class="footer-btn d-flex align-items-center">
+                                <button type="button" class="btn w-100 btn-danger mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Delete Emergency Service</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Footer End -->
+                    <!-- Footer End -->
+                <?php } ?>
 
                 <!-- Respond Modals -->.
                 <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

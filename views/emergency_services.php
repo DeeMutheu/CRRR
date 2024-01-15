@@ -132,9 +132,11 @@ require_once('../partials/head.php');
 
                     <!-- Dashboard Area -->
                     <div class="dashboard-area">
-                        <div class="d-flex flex-row-reverse">
-                            <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Add Emergency Service</button>
-                        </div>
+                        <?php if ($_SESSION['login_rank'] == 'Admin') { ?>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Add Emergency Service</button>
+                            </div>
+                        <?php } ?>
                         <!-- Add Modal -->
                         <div class="modal fade" id="AddModal">
                             <div class="modal-dialog modal-dialog-centered" role="document">
