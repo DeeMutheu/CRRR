@@ -61,6 +61,7 @@
 session_start();
 require_once('../config/config.php');
 require_once('../config/checklogin.php');
+require_once('../helpers/incidents.php');
 require_once('../partials/head.php');
 ?>
 
@@ -231,13 +232,14 @@ require_once('../partials/head.php');
                                 <div class="modal-body text-center text-dark">
                                     <img src="../assets/images/favicon.png" width="90"><br>
                                     <h4>Select response service to respond to this incident</h4>
+                                    <input type="hidden" name="emergency_interaction_incident_id" value="<?php echo $_GET['view']; ?>">
                                     <select class="form-control" name="emergency_interaction_service_id">
                                         <option value="">Select Response Service</option>
                                         <?php
                                         //Get Response Services
                                         $services_sql = mysqli_query(
                                             $mysqli,
-                                            "SELECT * FROM response_services  rs INNER JOIN login l ON rs.response_service_login_id  = l.login_id"
+                                            "SELECT * FROM response_services"
                                         );
                                         if (mysqli_num_rows($services_sql) > 0) {
                                             while ($services = mysqli_fetch_array($services_sql)) {
@@ -246,7 +248,9 @@ require_once('../partials/head.php');
                                         <?php }
                                         } ?>
                                     </select>
-                                    <textarea class="text-control" name="emergency_interaction_details" placeholder="Give comments"></textarea>
+                                    <br>
+                                    <label>Comments / Remarks</label>
+                                    <textarea class="form-control" name="emergency_interaction_details"></textarea>
                                     <hr>
                                     <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No, Decline</button>
                                     <input type="submit" name="RespondIncident" value="Yes, Respond" class="text-center btn btn-success btn-sm">

@@ -80,8 +80,27 @@ if (isset($_POST['ReportIncident'])) {
     }
 }
 
- //Update Incidents
+//Update Incidents
 
- //Delete Incidents
+//Delete Incidents
 
- //Respond / Comment on Incidents
+//Respond / Comment on Incidents
+if (isset($_POST['RespondIncident'])) {
+    $emergency_interaction_incident_id  = mysqli_real_escape_string($mysqli, $_POST['emergency_interaction_incident_id']);
+    $emergency_interaction_service_id = mysqli_real_escape_string($mysqli, $_POST['emergency_interaction_service_id']);
+    $emergency_interaction_details  = mysqli_real_escape_string($mysqli, $_POST['emergency_interaction_details']);
+
+    /* Persist */
+    $add_sql = mysqli_query(
+        $mysqli,
+        "INSERT INTO emergency_interactions (emergency_interaction_incident_id, emergency_interaction_service_id, emergency_interaction_details)
+        VALUES('{$emergency_interaction_incident_id}', '{$emergency_interaction_service_id}', '{$emergency_interaction_details}');
+        UPDATE road_incidents SET road_incident_response_service_id = '{$emergency_interaction_service_id}' WHERE  road_incident_id = '{$emergency_interaction_incident_id}'"
+    );
+
+    if ($add_sql) {
+        $success = "Incident Responded Successfully";
+    } else {
+        $err = "Error Responding Incident";
+    }
+}
