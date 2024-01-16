@@ -81,15 +81,15 @@ function filterData(&$str)
 $fileName = "Incidents update report.xls";
 
 /* Excel Column Name */
-$fields = array('#', 'Reported by name',  'Reported by contacts', 'Location', 'Date & time', 'Status', 'Description');
+$fields = array('#', 'Incident type', 'Reported by name',  'Reported by contacts', 'Location', 'Date & time', 'Description');
 
 
 /* Implode Excel Data */
 $excelData = implode("\t", array_values($fields)) . "\n";
 
 /* Fetch All Records From The Database */
-$query = $mysqli->query("SELECT * FROM incident_update  iu
-INNER JOIN user u ON u.user_id = iu.incident_user_id");
+$query = $mysqli->query("SELECT * FROM road_incidents i
+INNER JOIN locations l ON l.location_id = i.road_incident_location_id");
 $cnt = 1;
 if ($query->num_rows > 0) {
     /* Load All Fetched Rows */
@@ -97,12 +97,12 @@ if ($query->num_rows > 0) {
         /* Hardwire This Data Into .xls File */
         $lineData = array(
             $cnt,
+            $row['road_incident_type'],
             $row['user_name'],
-            $row['user_phone_number'],
-            $row['incident_location'],
-            date('d M Y, g:ia', strtotime($row['incident_date_and_time'])),
-            $row['incident_status'],
-            $row['incident_description']
+            $row['user_contact_phone'],
+            $row['location_name'],
+            date('d M Y, g:ia', strtotime($row['road_incident_date_reported'])),
+            $row['road_incident_description']
         );
         $cnt = $cnt + 1;
         array_walk($lineData, 'filterData');
