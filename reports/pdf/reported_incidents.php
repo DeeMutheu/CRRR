@@ -153,7 +153,7 @@ $html =
                 <body style="margin:1px;">
                     <div class="list_header" align="center">
                         <h3>
-                        Traffic Control And Safety System
+                            Collaborative Road Rescue Ready Application
                         </h3>                        
                         <hr style="width:100%" , color=black>
                         <h5>Reported Incidents List - Generated On ' . date('d M Y') . '</h5>
