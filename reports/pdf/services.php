@@ -153,28 +153,28 @@ $html =
                 <body style="margin:1px;">
                     <div class="list_header" align="center">
                         <h3>
-                        Traffic Control And Safety System
+                            Collaborative Road Rescue Ready Application
                         </h3>                        
                         <hr style="width:100%" , color=black>
-                        <h5>Traffic Flow List - Generated On ' . date('d M Y') . '</h5>
+                        <h5>Emergency Services - Generated On ' . date('d M Y') . '</h5>
                     </div>
                     <table border="1" cellspacing="0" width="98%" style="font-size:9pt">
                         <thead>
                             <tr>
                                 <th style="width:20%">S/N</th>
-                                <th style="width:50%">Reported by</th>
-                                <th style="width:30%">Contacts</th>
+                                <th style="width:50%">Name</th>
+                                <th style="width:30%">Email</th>
+                                <th style="width:100%">Contact Person Name</th>
+                                <th style="width:100%">Contact Person Email</th>
                                 <th style="width:100%">Location</th>
-                                <th style="width:50%">Date & Time</th>
-                                <th style="width:20%">Volume</th>
                             </tr>
                         </thead>
                         <tbody>
                             ';
                                 $pdf_sql = mysqli_query(
                                     $mysqli,
-                                    "SELECT * FROM traffic_flow tf
-                                    INNER JOIN user u ON u.user_id = tf.traffic_user_id"
+                                    "SELECT * FROM response_services  rs
+                                    INNER JOIN login l ON rs.response_service_login_id  = l.login_id"
                                 );
                                 $cnt = 1;
                                 if (mysqli_num_rows($pdf_sql) > 0) {
@@ -183,11 +183,11 @@ $html =
                                             '
                                             <tr>
                                                 <td>' . $cnt . '</td>
-                                                <td>' . $row['user_name'] . '</td>
-                                                <td>' . $row['user_phone_number'] . '</td>
-                                                <td>' . $row['flow_location'] . '</td>
-                                                <td>' . date('d M Y, g:ia', strtotime($row['flow_date_and_time'])) . '</td>
-                                                <td>' . $row['flow_traffic_volume'] . '</td>
+                                                <td>' . $row['response_service_name'] . '</td>
+                                                <td>' . $row['login_email'] . '</td>
+                                                <td>' . $row['response_service_contact_person_name'] . '</td>
+                                                <td>' . $row['response_service_contact_person_phone'] . '</td>
+                                                <td>' . $row['response_service_location'] . '</td>
                                             </tr>
                                         ';
                                         $cnt = $cnt + 1;
@@ -204,7 +204,7 @@ $dompdf->load_html($html);
 $dompdf->set_paper('A4', 'landscape');
 $dompdf->set_option('isHtml5ParserEnabled', true);
 $dompdf->render();
-$dompdf->stream('Traffic Flow List Generated On' . date('d M Y'), array("Attachment" => 1));
+$dompdf->stream('Emergency Medical Services Details' . date('d M Y'), array("Attachment" => 1));
 $options = $dompdf->getOptions();
 $options->setDefaultFont('');
 $dompdf->setOptions($options);
