@@ -119,7 +119,7 @@ require_once('../partials/head.php');
                         <div class="list item-list recent-jobs-list">
 
                             <div class="card job-post filter">
-                                <a href="download_road_users">
+                                <a href="reports_road_users">
                                     <div class="card-body">
                                         <div class="media media-80">
                                             <img src="../assets/images/welcome/road_users.png" alt="/">
@@ -132,7 +132,7 @@ require_once('../partials/head.php');
                             </div>
 
                             <div class="card job-post filter">
-                                <a href="download_road_users">
+                                <a href="reports_emerency_services">
                                     <div class="card-body">
                                         <div class="media media-80">
                                             <img src="../assets/images/welcome/emergency.png" alt="/">
@@ -145,7 +145,7 @@ require_once('../partials/head.php');
                             </div>
 
                             <div class="card job-post filter">
-                                <a href="download_road_users">
+                                <a href="reports_incidents">
                                     <div class="card-body">
                                         <div class="media media-80">
                                             <img src="../assets/images/welcome/incident.png" alt="/">
