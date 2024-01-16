@@ -126,12 +126,10 @@ require_once('../partials/head.php');
                         </div>
                     </form>
                     <div class="d-flex flex-row-reverse">
-                        <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Export PDF</button>
+                        <a href="reports_exporter?module=users&type=pdf" class="btn w-10 btn-primary mb-2 text-center">Export PDF</a>
                         &nbsp;
-                        <button type="button" class="btn w-10 btn-primary mb-2 text-center" data-bs-toggle="modal" data-bs-target="#AddModal">Export CSV</button>
+                        <a href="reports_exporter?module=users&type=csv" class="btn w-10 btn-primary mb-2 text-center">Export CSV</a>
                     </div>
-
-
 
                     <!-- Dashboard Area -->
                     <div class="dashboard-area">
