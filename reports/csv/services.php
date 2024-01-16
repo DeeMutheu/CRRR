@@ -78,18 +78,18 @@ function filterData(&$str)
 
 
 /* Excel File Name */
-$fileName = "Traffic flow update report.xls";
+$fileName = "Emergency Services.xls";
 
 /* Excel Column Name */
-$fields = array('#', 'Reported by name',  'Reported by contacts', 'Location', 'Date & time', 'Volume');
+$fields = array('#', 'Name', 'Email', 'Contact Person Name', 'Contact Person Email', 'Contact Person Phone Number', 'Location');
 
 
 /* Implode Excel Data */
 $excelData = implode("\t", array_values($fields)) . "\n";
 
 /* Fetch All Records From The Database */
-$query = $mysqli->query("SELECT * FROM traffic_flow tf
-INNER JOIN user u ON u.user_id = tf.traffic_user_id");
+$query = $mysqli->query("SELECT * FROM response_services  rs
+INNER JOIN login l ON rs.response_service_login_id  = l.login_id");
 $cnt = 1;
 if ($query->num_rows > 0) {
     /* Load All Fetched Rows */
@@ -97,18 +97,18 @@ if ($query->num_rows > 0) {
         /* Hardwire This Data Into .xls File */
         $lineData = array(
             $cnt,
-            $row['user_name'],
-            $row['user_phone_number'],
-            $row['flow_location'],
-            date('d M Y, g:ia', strtotime($row['flow_date_and_time'])),
-            $row['flow_traffic_volume'],
+            $row['response_service_name'],
+            $row['login_email'],
+            $row['response_service_contact_person_name'],
+            $row['response_service_contact_person_phone'],
+            $row['response_service_location']
         );
         $cnt = $cnt + 1;
         array_walk($lineData, 'filterData');
         $excelData .= implode("\t", array_values($lineData)) . "\n";
     }
 } else {
-    $excelData .= 'No Traffic Flow Records Available...' . "\n";
+    $excelData .= 'No Records Available...' . "\n";
 }
 
 /* Generate Header File Encodings For Download */

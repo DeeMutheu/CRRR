@@ -81,12 +81,12 @@ if ($module == 'users') {
         header('location: logout');
         exit();
     }
-} else if ($module == 'Traffic') {
+} else if ($module == 'services') {
     $type = mysqli_real_escape_string($mysqli, $_GET['type']);
     if ($type == 'pdf') {
-        require_once('../reports/pdf/traffic_flow.php');
+        require_once('../reports/pdf/services.php');
     } else if ($type == 'csv') {
-        require_once('../reports/csv/traffic_flow.php');
+        require_once('../reports/csv/services.php');
     } else {
         header('location: logout');
         exit();
