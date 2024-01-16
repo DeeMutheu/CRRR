@@ -69,6 +69,26 @@
                             <span>Incidents</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="reports">
+                            <span class="dz-icon bg-green light">
+                                <svg height="18" viewBox="0 0 512 512" width="18" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="_40_Sidemenu" data-name="40 Sidemenu">
+                                        <g fill="#a9defc">
+                                            <rect height="105.52" rx="24" width="231.61" x="34.56" y="80.54" />
+                                            <rect height="105.52" rx="24" width="231.61" x="34.56" y="203.24" />
+                                            <rect height="105.52" rx="24" width="231.61" x="34.56" y="325.94" />
+                                        </g>
+                                        <path d="m309.41 501h-274.85a20.46 20.46 0 0 1 0-40.91h254.44v-408.18h-254.44a20.46 20.46 0 0 1 0-40.91h274.85a20.46 20.46 0 0 1 20.46 20.46v449.08a20.46 20.46 0 0 1 -20.46 20.46z" fill="#f5d367" />
+                                        <path d="m491.92 241.44c-1.43-1.44-74.62-73.44-74.62-73.44a20.46 20.46 0 0 0 -28.93 29l59.55 59.55-59.55 59.55a20.46 20.46 0 0 0 28.93 28.9s73.19-72 74.62-73.41a22 22 0 0 0 0-30.14z" fill="#f5d367" />
+                                        <path d="m123.85 431.47h-65.29a24 24 0 0 1 -24-24v-57.53a24 24 0 0 1 11.65-20.58 501.22 501.22 0 0 0 77.64 102.11z" fill="#a2d4ea" />
+                                        <path d="m209.31 501h-174.75a20.46 20.46 0 1 1 0-40.91h120a499.3 499.3 0 0 0 54.75 40.91z" fill="#e2c061" />
+                                    </g>
+                                </svg>
+                            </span>
+                            <span>Reports</span>
+                        </a>
+                    </li>
                     <li><a class="nav-link" href="profile">
                             <span class="dz-icon bg-yellow light">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
