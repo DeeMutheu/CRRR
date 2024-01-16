@@ -194,7 +194,7 @@ $html =
     ';
 $dompdf = new Dompdf();
 $dompdf->load_html($html);
-$dompdf->set_paper('A4', 'landscape');
+$dompdf->set_paper('A4', 'potrait');
 $dompdf->set_option('isHtml5ParserEnabled', true);
 $dompdf->render();
 $dompdf->stream('Users List Generated On' . date('d M Y'), array("Attachment" => 1));
