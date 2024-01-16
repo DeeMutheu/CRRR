@@ -162,11 +162,11 @@ $html =
                         <thead>
                             <tr>
                                 <th style="width:20%">S/N</th>
+                                <th style="width:50%">Incident Type</th>
                                 <th style="width:50%">Reported by</th>
                                 <th style="width:30%">Contacts</th>
                                 <th style="width:80%">Incident Location</th>
                                 <th style="width:50%">Date & Time</th>
-                                <th style="width:20%">Status</th>
                                 <th style="width:100%">Description</th>
                             </tr>
                         </thead>
@@ -174,8 +174,9 @@ $html =
                             ';
                                 $pdf_sql = mysqli_query(
                                     $mysqli,
-                                    "SELECT * FROM incident_update  iu
-                                    INNER JOIN user u ON u.user_id = iu.incident_user_id"
+                                    "SELECT * FROM road_incidents i
+                                    INNER JOIN locations l ON l.location_id = i.road_incident_location_id
+                                    INNER JOIN road_users u ON u.user_id = i.road_incident_user_id"
                                 );
                                 $cnt = 1;
                                 if (mysqli_num_rows($pdf_sql) > 0) {
@@ -184,12 +185,12 @@ $html =
                                             '
                                             <tr>
                                                 <td>' . $cnt . '</td>
+                                                <td>' . $row['road_incident_type'] . '</td>
                                                 <td>' . $row['user_name'] . '</td>
-                                                <td>' . $row['user_phone_number'] . '</td>
-                                                <td>' . $row['incident_location'] . '</td>
-                                                <td>' . date('d M Y, g:ia', strtotime($row['incident_date_and_time'])) . '</td>
-                                                <td>' . $row['incident_status'] . '</td>
-                                                <td>' . $row['incident_description'] . '</td>
+                                                <td>' . $row['user_contact_phone'] . '</td>
+                                                <td>' . $row['location_name'] . '</td>
+                                                <td>' . date('d M Y, g:ia', strtotime($row['road_incident_date_reported'])) . '</td>
+                                                <td>' . $row['road_incident_description'] . '</td>
                                             </tr>
                                         ';
                                         $cnt = $cnt + 1;
