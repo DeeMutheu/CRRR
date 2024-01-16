@@ -91,32 +91,12 @@ if ($module == 'users') {
         header('location: logout');
         exit();
     }
-} else if ($module == 'Payments') {
+} else if ($module == 'incidents') {
     $type = mysqli_real_escape_string($mysqli, $_GET['type']);
     if ($type == 'pdf') {
-        require_once('../reports/pdf/payments.php');
+        require_once('../reports/pdf/reported_incidents.php');
     } else if ($type == 'csv') {
-        require_once('../reports/csv/payments.php');
-    } else {
-        header('location: logout');
-        exit();
-    }
-} else if ($module == 'Users') {
-    $type = mysqli_real_escape_string($mysqli, $_GET['type']);
-    if ($type == 'pdf') {
-        require_once('../reports/pdf/users.php');
-    } else if ($type == 'csv') {
-        require_once('../reports/csv/users.php');
-    } else {
-        header('location: logout');
-        exit();
-    }
-} else if ($module == 'Vehicles') {
-    $type = mysqli_real_escape_string($mysqli, $_GET['type']);
-    if ($type == 'pdf') {
-        require_once('../reports/pdf/vehicle.php');
-    } else if ($type == 'csv') {
-        require_once('../reports/csv/vehicle.php');
+        require_once('../reports/csv/reported_incidents.php');
     } else {
         header('location: logout');
         exit();

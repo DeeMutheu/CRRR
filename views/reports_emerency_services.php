@@ -128,56 +128,58 @@ require_once('../partials/head.php');
                             <input type="text" placeholder="Search..." id="search" onkeyup="FilterFunction()" name="field_name" class="form-control ps-0 bs-0">
                         </div>
                     </form>
-
-
-                    <!-- Dashboard Area -->
-                    <div class="dashboard-area">
+                    
+                    <div class="d-flex flex-row-reverse">
                         <a href="reports_exporter?module=services&type=pdf" class="btn w-10 btn-primary mb-2 text-center">Export PDF</a>
                         &nbsp;
                         <a href="reports_exporter?module=services&type=csv" class="btn w-10 btn-primary mb-2 text-center">Export CSV</a>
                     </div>
 
-                    <div class="list item-list recent-jobs-list">
-                        <?php
-                        //Get Response Services
-                        $services_sql = mysqli_query(
-                            $mysqli,
-                            "SELECT * FROM response_services  rs
+                    <!-- Dashboard Area -->
+                    <div class="dashboard-area">
+
+
+                        <div class="list item-list recent-jobs-list">
+                            <?php
+                            //Get Response Services
+                            $services_sql = mysqli_query(
+                                $mysqli,
+                                "SELECT * FROM response_services  rs
                                 INNER JOIN login l ON rs.response_service_login_id  = l.login_id"
-                        );
-                        if (mysqli_num_rows($services_sql) > 0) {
-                            while ($services = mysqli_fetch_array($services_sql)) {
-                        ?>
+                            );
+                            if (mysqli_num_rows($services_sql) > 0) {
+                                while ($services = mysqli_fetch_array($services_sql)) {
+                            ?>
+                                    <div class="card job-post filter">
+                                        <a href="emergency_service?view=<?php echo $services['response_service_id']; ?>">
+                                            <div class="card-body">
+                                                <div class="media media-80">
+                                                    <img src="../assets/images/favicon.png" alt="/">
+                                                </div>
+                                                <div class="card-info">
+                                                    <h6 class="title"><?php echo $services['response_service_name']; ?></h6>
+                                                    <span class="location">
+                                                        <?php echo $services['login_email']; ?> <br>
+                                                        <?php echo $services['response_service_contact_person_phone']; ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php }
+                            } else { ?>
                                 <div class="card job-post filter">
-                                    <a href="emergency_service?view=<?php echo $services['response_service_id']; ?>">
-                                        <div class="card-body">
-                                            <div class="media media-80">
-                                                <img src="../assets/images/favicon.png" alt="/">
-                                            </div>
-                                            <div class="card-info">
-                                                <h6 class="title"><?php echo $services['response_service_name']; ?></h6>
-                                                <span class="location">
-                                                    <?php echo $services['login_email']; ?> <br>
-                                                    <?php echo $services['response_service_contact_person_phone']; ?>
-                                                </span>
-                                            </div>
+                                    <div class="card-body">
+                                        <div class="card-info">
+                                            <h6 class="title text-danger">No Response Services Available </h6>
                                         </div>
-                                    </a>
-                                </div>
-                            <?php }
-                        } else { ?>
-                            <div class="card job-post filter">
-                                <div class="card-body">
-                                    <div class="card-info">
-                                        <h6 class="title text-danger">No Response Services Available </h6>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
 
+                        </div>
+                        <!-- Recent Jobs End -->
                     </div>
-                    <!-- Recent Jobs End -->
-
                 </div>
             </div>
         </div>
