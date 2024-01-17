@@ -233,7 +233,7 @@ require_once('../partials/head.php');
                                 <div class="modal-body text-center text-dark">
                                     <img src="../assets/images/favicon.png" width="90"><br>
                                     <h4>Delete this emergency service?</h4>
-                                    <input type="hidden" name="response_service_login_id " value="<?php echo $user['response_service_login_id ']; ?>">
+                                    <input type="hidden" name="response_service_login_id" value="<?php echo $service['response_service_login_id']; ?>">
                                     <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No</button>
                                     <input type="submit" name="Delete_Service" value="Yes, Delete" class="text-center btn btn-success btn-sm">
                                 </div>
