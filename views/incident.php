@@ -266,13 +266,13 @@ require_once('../partials/head.php');
                     </div>
                 </div>
 
-                <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="Add_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <form method="POST">
                                 <div class="modal-body text-center text-dark">
                                     <img src="../assets/images/favicon.png" width="90"><br>
-                                    <h4>Select response service to respond to this incident</h4>
+                                    <h4>Respond to this incident?</h4>
                                     <input type="hidden" name="emergency_interaction_incident_id" value="<?php echo $_GET['view']; ?>">
                                     <?php
                                     //Get Response Services
@@ -286,9 +286,8 @@ require_once('../partials/head.php');
                                             <input type="hidden" name="emergency_interaction_service_id" value="<?php echo $services['response_service_id']; ?>">
                                     <?php }
                                     } ?>
-                                    <br>
                                     <label>Comments / Remarks</label>
-                                    <textarea class="form-control" name="emergency_interaction_details"></textarea>
+                                    <textarea class="form-control" required name="emergency_interaction_details"></textarea>
                                     <hr>
                                     <button type="button" class="text-center btn btn-danger btn-sm" data-bs-dismiss="modal">No, Decline</button>
                                     <input type="submit" name="RespondIncident" value="Yes, Respond" class="text-center btn btn-success btn-sm">
