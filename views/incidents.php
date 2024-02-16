@@ -173,7 +173,7 @@ require_once('../partials/head.php');
                                             <div class="form-group col-md-12">
                                                 <label class="text-center">Incident location</label>
                                                 <select type="text" name="road_incident_location_id" class="form-control select2">
-                                                    <option value="">Search location</option>
+                                                    <option value="0">Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
                                                     $locations_sql = mysqli_query(
@@ -183,7 +183,7 @@ require_once('../partials/head.php');
                                                     if (mysqli_num_rows($locations_sql) > 0) {
                                                         while ($locations = mysqli_fetch_array($locations_sql)) {
                                                     ?>
-                                                            <option value="<?php echo $locations['location_id']; ?>">
+                                                            <option>
                                                                 <?php echo $locations['location_name']; ?>
                                                             </option>
                                                     <?php }
@@ -279,10 +279,10 @@ require_once('../partials/head.php');
     <?php require_once('../partials/scripts.php'); ?>
     <script>
         function initMap() {
-            var myLatlng = new google.maps.LatLng(0.4310606133654201, 36.959405785560946);
+            var myLatlng = new google.maps.LatLng(0.431, 36.959);
             var mapProp = {
                 center: myLatlng,
-                zoom: 5,
+                zoom: 8,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
 
             };
@@ -290,11 +290,11 @@ require_once('../partials/head.php');
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-                title: 'Hello World!',
+                title: 'Your Location!',
                 draggable: true
             });
-            document.getElementById('lat').value = 0.4310606133654201
-            document.getElementById('lng').value = 36.959405785560946
+            document.getElementById('lat').value = 0.431
+            document.getElementById('lng').value = 36.959
             // marker drag event
             google.maps.event.addListener(marker, 'drag', function(event) {
                 document.getElementById('lat').value = event.latLng.lat();
