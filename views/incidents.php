@@ -169,10 +169,10 @@ require_once('../partials/head.php');
                                                     <option value="Towing">Towing</option>
                                                     <option value="Other">Other</option>
                                                 </select>
-                                            </div>
+                                            </div> <br>
                                             <div class="form-group col-md-12">
-                                                <label class="text-center">Location <span class="text-danger">*</span></label>
-                                                <select type="text" name="road_incident_location_id" required class="form-control select2">
+                                                <label class="text-center">Incident location</label>
+                                                <select type="text" name="road_incident_location_id" class="form-control select2">
                                                     <option value="">Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
@@ -189,7 +189,15 @@ require_once('../partials/head.php');
                                                     <?php }
                                                     } ?>
                                                 </select>
+                                            </div><br>
+                                            <p class="text-center">Or Pin Location</p>
+                                            <div class="form-group col-md-12">
+                                                <label>Pin Incident Location </label>
+                                                <div id="googleMap" style="height: 300px;"></div>
+                                                <input type='hidden' name='incident_lat' id='lat'>
+                                                <input type='hidden' name='incident_lng' id='lng'>
                                             </div>
+                                            <br>
                                             <div class="form-group col-md-12">
                                                 <label>Incident description <span class="text-danger">*</span></label>
                                                 <textarea name="road_incident_description" required class="form-control"></textarea>
@@ -269,6 +277,42 @@ require_once('../partials/head.php');
     Scripts
 ***********************************-->
     <?php require_once('../partials/scripts.php'); ?>
+    <script>
+        function initMap() {
+            var myLatlng = new google.maps.LatLng(0.4310606133654201, 36.959405785560946);
+            var mapProp = {
+                center: myLatlng,
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Hello World!',
+                draggable: true
+            });
+            document.getElementById('lat').value = 0.4310606133654201
+            document.getElementById('lng').value = 36.959405785560946
+            // marker drag event
+            google.maps.event.addListener(marker, 'drag', function(event) {
+                document.getElementById('lat').value = event.latLng.lat();
+                document.getElementById('lng').value = event.latLng.lng();
+            });
+
+            //marker drag event end
+            google.maps.event.addListener(marker, 'dragend', function(event) {
+                document.getElementById('lat').value = event.latLng.lat();
+                document.getElementById('lng').value = event.latLng.lng();
+                /* alert("lat=>" + event.latLng.lat());
+                alert("long=>" + event.latLng.lng()); */
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 </body>
 
 

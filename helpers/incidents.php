@@ -65,12 +65,14 @@ if (isset($_POST['ReportIncident'])) {
     $road_incident_type = mysqli_real_escape_string($mysqli, $_POST['road_incident_type']);
     $road_incident_location_id  = mysqli_real_escape_string($mysqli, $_POST['road_incident_location_id']);
     $road_incident_description = mysqli_real_escape_string($mysqli, $_POST['road_incident_description']);
+    $incident_lat = mysqli_real_escape_string($mysqli, $_POST['incident_lat']);
+    $incident_lng = mysqli_real_escape_string($mysqli, $_POST['incident_lng']);
 
     //Persist
     $add_sql = mysqli_query(
         $mysqli,
-        "INSERT INTO road_incidents  (road_incident_user_id, road_incident_type, road_incident_location_id , road_incident_description)
-        VALUES('{$road_incident_user_id}', '{$road_incident_type}', '{$road_incident_location_id}', '{$road_incident_description}')"
+        "INSERT INTO road_incidents  (road_incident_user_id, road_incident_type, road_incident_location_id , road_incident_description, incident_lat, incident_lng)
+        VALUES('{$road_incident_user_id}', '{$road_incident_type}', '{$road_incident_location_id}', '{$road_incident_description}', '{$incident_lat}', '{$incident_lng}')"
     );
 
     if ($add_sql) {
