@@ -250,12 +250,21 @@ require_once('../partials/head.php');
                         <div class="list item-list recent-jobs-list">
                             <ul>
                                 <?php
-                                $incidents_sql = mysqli_query(
-                                    $mysqli,
-                                    "SELECT * FROM road_incidents ri
-                                    INNER JOIN locations l ON l.location_id = ri.road_incident_location_id
-                                    LIMIT  5"
-                                );
+                                if ($_SESSION['login_rank'] != 'Road User') {
+                                    $incidents_sql = mysqli_query(
+                                        $mysqli,
+                                        "SELECT * FROM road_incidents i
+                                        INNER JOIN locations l ON l.location_id = i.road_incident_location_id"
+                                    );
+                                } else {
+                                    $incidents_sql = mysqli_query(
+                                        $mysqli,
+                                        "SELECT * FROM road_incidents i
+                                        INNER JOIN locations l ON l.location_id = i.road_incident_location_id
+                                        INNER JOIN road_users u ON u.user_id = i.road_incident_user_id
+                                        WHERE u.user_login_id = '{$_SESSION['login_id']}'"
+                                    );
+                                }
                                 if (mysqli_num_rows($incidents_sql) > 0) {
                                     while ($incidents = mysqli_fetch_array($incidents_sql)) {
                                 ?>
