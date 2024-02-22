@@ -173,7 +173,7 @@ require_once('../partials/head.php');
                                             <div class="form-group col-md-12">
                                                 <label class="text-center">Incident location</label>
                                                 <select type="text" name="road_incident_location_id" class="form-control select2">
-                                                    <option value="0">Search location</option>
+                                                    <option >Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
                                                     $locations_sql = mysqli_query(
@@ -194,8 +194,8 @@ require_once('../partials/head.php');
                                             <div class="form-group col-md-12">
                                                 <label>Pin Incident Location </label>
                                                 <div id="map" style="height: 300px;"></div>
-                                                <input type='text' name='lat' id='lat'>
-                                                <input type='text' name='lng' id='lng'>
+                                                <input type='hidden' name='incident_lat' id='lat'>
+                                                <input type='hidden' name='incident_lng' id='lng'>
                                             </div>
                                             <br>
                                             <div class="form-group col-md-12">
@@ -234,7 +234,6 @@ require_once('../partials/head.php');
                                         $incidents_sql = mysqli_query(
                                             $mysqli,
                                             "SELECT * FROM road_incidents i
-                                            INNER JOIN locations l ON l.location_id = i.road_incident_location_id
                                             INNER JOIN road_users u ON u.user_id = i.road_incident_user_id
                                             WHERE u.user_login_id = '{$_SESSION['login_id']}'"
                                         );
@@ -249,7 +248,7 @@ require_once('../partials/head.php');
                                                         <div class="item-title-row">
                                                             <div class="item-subtitle text-danger"><?php echo date('d M Y g:ia', strtotime($incidents['road_incident_date_reported'])); ?></div>
                                                             <h6 class="item-title">
-                                                                <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?> At <?php echo $incidents['location_name']; ?></a>
+                                                                <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?></a>
                                                             </h6>
                                                         </div>
                                                     </div>
@@ -293,7 +292,7 @@ require_once('../partials/head.php');
             var myLatlng = new google.maps.LatLng(-0.43124, 36.93599);
             var mapProp = {
                 center: myLatlng,
-                zoom: 8,
+                zoom: 10,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
 
             };
@@ -306,18 +305,20 @@ require_once('../partials/head.php');
             });
             document.getElementById('lat').value = -0.43124
             document.getElementById('lng').value = 36.93599
+            document.getElementById('Location').value = "Nyeri, Kenya"
             // marker drag event
             google.maps.event.addListener(marker, 'drag', function(event) {
                 document.getElementById('lat').value = event.latLng.lat();
                 document.getElementById('lng').value = event.latLng.lng();
+                document.getElementById('Location').value = event.
             });
 
             //marker drag event end
             google.maps.event.addListener(marker, 'dragend', function(event) {
                 document.getElementById('lat').value = event.latLng.lat();
                 document.getElementById('lng').value = event.latLng.lng();
-                alert("lat=>" + event.latLng.lat());
-                alert("long=>" + event.latLng.lng());
+                /* alert("lat=>" + event.latLng.lat());
+                alert("long=>" + event.latLng.lng()); */
             });
         }
 

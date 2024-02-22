@@ -260,7 +260,6 @@ require_once('../partials/head.php');
                                     $incidents_sql = mysqli_query(
                                         $mysqli,
                                         "SELECT * FROM road_incidents i
-                                        INNER JOIN locations l ON l.location_id = i.road_incident_location_id
                                         INNER JOIN road_users u ON u.user_id = i.road_incident_user_id
                                         WHERE u.user_login_id = '{$_SESSION['login_id']}'"
                                     );
@@ -275,7 +274,7 @@ require_once('../partials/head.php');
                                                     <div class="item-title-row">
                                                         <div class="item-subtitle text-danger"><?php echo date('d M Y g:ia', strtotime($incidents['road_incident_date_reported'])); ?></div>
                                                         <h6 class="item-title">
-                                                            <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?></a> At <?php echo $incidents['location_name']; ?>
+                                                            <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?></a>
                                                         </h6>
                                                     </div>
                                                 </div>
