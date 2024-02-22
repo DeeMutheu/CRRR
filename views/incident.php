@@ -107,12 +107,12 @@ require_once('../partials/head.php');
         $incidents_sql = mysqli_query(
             $mysqli,
             "SELECT * FROM road_incidents i
-            INNER JOIN locations l ON l.location_id = i.road_incident_location_id
             INNER JOIN road_users u ON u.user_id = i.road_incident_user_id
             WHERE i.road_incident_id = '{$_GET['view']}'"
         );
         if (mysqli_num_rows($incidents_sql) > 0) {
             while ($incident = mysqli_fetch_array($incidents_sql)) {
+
         ?>
 
 
@@ -130,10 +130,13 @@ require_once('../partials/head.php');
                             </div>
                             <div class="col-12">
                                 <div class="card">
-                                    <div class="card-header border-0 pb-0">
-                                        <h5 class="card-title">Location : <?php echo $incident['location_name']; ?></h5>
-                                    </div>
-                                    <div class="card-body">
+                                    <?php if ($incident['road_incident_location'] != '') { ?>
+                                        <div class="card-header border-0 pb-0">
+                                            <h5 class="card-title">Location : <?php echo $incident['location_name']; ?></h5>
+                                        </div>
+                                    <?php } else { ?>
+                                        <h5 class="card-title">Location</h5>
+                                    <?php } ?> <div class="card-body">
                                         <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['location_name']; ?>&output=embed"></iframe>
                                     </div>
                                 </div>

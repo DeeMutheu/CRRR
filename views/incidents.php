@@ -173,7 +173,7 @@ require_once('../partials/head.php');
                                             <div class="form-group col-md-12">
                                                 <label class="text-center">Incident location</label>
                                                 <select type="text" name="road_incident_location" class="form-control select2">
-                                                    <option >Search location</option>
+                                                    <option value="">Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
                                                     $locations_sql = mysqli_query(
