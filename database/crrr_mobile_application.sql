@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 22, 2024 at 05:53 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Feb 22, 2024 at 07:48 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -131,24 +131,20 @@ CREATE TABLE `road_incidents` (
   `road_incident_id` int(200) NOT NULL,
   `road_incident_user_id` int(200) NOT NULL,
   `road_incident_type` varchar(200) NOT NULL,
-  `road_incident_location_id` varchar(200) DEFAULT NULL,
+  `road_incident_location` varchar(200) DEFAULT NULL,
+  `incident_lat` varchar(200) DEFAULT NULL,
+  `incident_lng` varchar(200) DEFAULT NULL,
   `road_incident_description` longtext NOT NULL,
   `road_incident_date_reported` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
-  `road_incident_response_service_id` int(200) DEFAULT NULL,
-  `incident_lat` varchar(200) DEFAULT NULL,
-  `incident_lng` varchar(200) DEFAULT NULL
+  `road_incident_response_service_id` int(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `road_incidents`
 --
 
-INSERT INTO `road_incidents` (`road_incident_id`, `road_incident_user_id`, `road_incident_type`, `road_incident_location_id`, `road_incident_description`, `road_incident_date_reported`, `road_incident_response_service_id`, `incident_lat`, `incident_lng`) VALUES
-(1, 1, 'Road Accident', '4', 'orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2024-01-15 06:20:54.761957', 1, NULL, NULL),
-(2, 1, 'Fire Accident', '8', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2024-01-15 06:54:46.428597', 1, NULL, NULL),
-(3, 2, 'Road Accident', '4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2024-01-15 10:16:38.387018', 1, NULL, NULL),
-(5, 3, 'Fire Accident', '0', 'Fire accident', '2024-02-16 09:54:32.094396', NULL, '0.431', '36.959'),
-(6, 3, 'Medical Emergency', '0', 'medical emergency', '2024-02-16 09:55:17.441776', NULL, '0.09042785540472717', '36.882095703124996');
+INSERT INTO `road_incidents` (`road_incident_id`, `road_incident_user_id`, `road_incident_type`, `road_incident_location`, `incident_lat`, `incident_lng`, `road_incident_description`, `road_incident_date_reported`, `road_incident_response_service_id`) VALUES
+(9, 2, 'Fire Accident', NULL, '-0.3971447710157459', '36.96092170000001', 'There is a fire emergency at Dedan Kimathi', '2024-02-22 05:52:10.112648', NULL);
 
 -- --------------------------------------------------------
 
@@ -209,7 +205,7 @@ ALTER TABLE `response_services`
 ALTER TABLE `road_incidents`
   ADD PRIMARY KEY (`road_incident_id`),
   ADD KEY `UserID` (`road_incident_user_id`),
-  ADD KEY `LocationID` (`road_incident_location_id`);
+  ADD KEY `LocationID` (`road_incident_location`);
 
 --
 -- Indexes for table `road_users`
@@ -250,7 +246,7 @@ ALTER TABLE `response_services`
 -- AUTO_INCREMENT for table `road_incidents`
 --
 ALTER TABLE `road_incidents`
-  MODIFY `road_incident_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `road_incident_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `road_users`

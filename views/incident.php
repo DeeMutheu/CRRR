@@ -115,7 +115,6 @@ require_once('../partials/head.php');
 
         ?>
 
-
                 <!-- Page Content -->
                 <div class="page-content bottom-content">
                     <div class="content-body">
