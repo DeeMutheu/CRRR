@@ -194,8 +194,7 @@ require_once('../partials/head.php');
                                             <div class="form-group col-md-12">
                                                 <label>Pin Incident Location </label>
                                                 <div id="googleMap" style="height: 300px;"></div>
-                                                <input type='hidden' name='incident_lat' id='lat'>
-                                                <input type='hidden' name='incident_lng' id='lng'>
+                                                <input type="text" name="incident_location" id="address">
                                             </div>
                                             <br>
                                             <div class="form-group col-md-12">
@@ -228,8 +227,7 @@ require_once('../partials/head.php');
                                     if ($_SESSION['login_rank'] != 'Road User') {
                                         $incidents_sql = mysqli_query(
                                             $mysqli,
-                                            "SELECT * FROM road_incidents i
-                                            INNER JOIN locations l ON l.location_id = i.road_incident_location_id"
+                                            "SELECT * FROM road_incidents i"
                                         );
                                     } else {
                                         $incidents_sql = mysqli_query(
@@ -278,38 +276,61 @@ require_once('../partials/head.php');
 ***********************************-->
     <?php require_once('../partials/scripts.php'); ?>
     <script>
+        var map;
+        var geocoder;
+        var mapOptions = {
+            center: new google.maps.LatLng(0.0, 0.0),
+            zoom: 2,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
         function initMap() {
-            var myLatlng = new google.maps.LatLng(0.431, 36.959);
-            var mapProp = {
-                center: myLatlng,
-                zoom: 8,
+            var myOptions = {
+                center: new google.maps.LatLng(36.835769, 10.247693),
+                zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
-
             };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: 'Your Location!',
-                draggable: true
-            });
-            document.getElementById('lat').value = 0.431
-            document.getElementById('lng').value = 36.959
-            // marker drag event
-            google.maps.event.addListener(marker, 'drag', function(event) {
-                document.getElementById('lat').value = event.latLng.lat();
-                document.getElementById('lng').value = event.latLng.lng();
+
+            geocoder = new google.maps.Geocoder();
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+                myOptions);
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(event.latLng);
             });
 
-            //marker drag event end
-            google.maps.event.addListener(marker, 'dragend', function(event) {
-                document.getElementById('lat').value = event.latLng.lat();
-                document.getElementById('lng').value = event.latLng.lng();
-                /* alert("lat=>" + event.latLng.lat());
-                alert("long=>" + event.latLng.lng()); */
-            });
+            var marker;
+
+            function placeMarker(location) {
+                if (marker) { //on vérifie si le marqueur existe
+                    marker.setPosition(location); //on change sa position
+                } else {
+                    marker = new google.maps.Marker({ //on créé le marqueur
+                        position: location,
+                        map: map
+                    });
+                }
+                document.getElementById('lat').value = location.lat();
+                document.getElementById('lng').value = location.lng();
+                getAddress(location);
+            }
+
+            function getAddress(latLng) {
+                geocoder.geocode({
+                        'latLng': latLng
+                    },
+                    function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                document.getElementById("address").value = results[0].formatted_address;
+                            } else {
+                                document.getElementById("address").value = "No results";
+                            }
+                        } else {
+                            document.getElementById("address").value = status;
+                        }
+                    });
+            }
         }
-
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
