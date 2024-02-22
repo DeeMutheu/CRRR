@@ -174,7 +174,6 @@ $html =
                                 $pdf_sql = mysqli_query(
                                     $mysqli,
                                     "SELECT * FROM road_incidents i
-                                    INNER JOIN locations l ON l.location_id = i.road_incident_location_id
                                     INNER JOIN road_users u ON u.user_id = i.road_incident_user_id"
                                 );
                                 $cnt = 1;

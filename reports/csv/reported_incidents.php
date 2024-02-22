@@ -89,7 +89,6 @@ $excelData = implode("\t", array_values($fields)) . "\n";
 
 /* Fetch All Records From The Database */
 $query = $mysqli->query("SELECT * FROM road_incidents i
-INNER JOIN locations l ON l.location_id = i.road_incident_location_id
 INNER JOIN road_users u ON u.user_id = i.road_incident_user_id");
 $cnt = 1;
 if ($query->num_rows > 0) {
