@@ -172,11 +172,29 @@ require_once('../partials/head.php');
                                             </div> <br>
                                             <div class="form-group col-md-12">
                                                 <label class="text-center">Incident location</label>
-                                                <input type="text" name="road_incident_location_id" class="form-control" id="mapsearch">
-                                            </div>
-                                            <br>
+                                                <select type="text" name="road_incident_location_id" class="form-control select2">
+                                                    <option value="0">Search location</option>
+                                                    <?php
+                                                    /* Pull List Of Locations */
+                                                    $locations_sql = mysqli_query(
+                                                        $mysqli,
+                                                        "SELECT * FROM locations"
+                                                    );
+                                                    if (mysqli_num_rows($locations_sql) > 0) {
+                                                        while ($locations = mysqli_fetch_array($locations_sql)) {
+                                                    ?>
+                                                            <option>
+                                                                <?php echo $locations['location_name']; ?>
+                                                            </option>
+                                                    <?php }
+                                                    } ?>
+                                                </select>
+                                            </div><br>
+                                            <p class="text-center">Or Pin Location</p>
                                             <div class="form-group col-md-12">
-                                                <div id="map" style="height: 300px;"></div>
+                                                <label>Pin Incident Location </label>
+                                                <div id="googleMap" style="height: 300px;"></div>
+                                                <input type="text" name="incident_location" id="address">
                                             </div>
                                             <br>
                                             <div class="form-group col-md-12">
@@ -271,16 +289,61 @@ require_once('../partials/head.php');
     <?php require_once('../partials/scripts.php'); ?>
     <script>
         var map;
+        var geocoder;
+        var mapOptions = {
+            center: new google.maps.LatLng(0.0, 0.0),
+            zoom: 2,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
 
         function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                zoom: 8
+            var myOptions = {
+                center: new google.maps.LatLng(36.835769, 10.247693),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            geocoder = new google.maps.Geocoder();
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+                myOptions);
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(event.latLng);
             });
+
+            var marker;
+
+            function placeMarker(location) {
+                if (marker) { //on vérifie si le marqueur existe
+                    marker.setPosition(location); //on change sa position
+                } else {
+                    marker = new google.maps.Marker({ //on créé le marqueur
+                        position: location,
+                        map: map
+                    });
+                }
+                document.getElementById('lat').value = location.lat();
+                document.getElementById('lng').value = location.lng();
+                getAddress(location);
+            }
+
+            function getAddress(latLng) {
+                geocoder.geocode({
+                        'latLng': latLng
+                    },
+                    function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                document.getElementById("address").value = results[0].formatted_address;
+                            } else {
+                                document.getElementById("address").value = "No results";
+                            }
+                        } else {
+                            document.getElementById("address").value = status;
+                        }
+                    });
+            }
         }
+        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
 </body>

@@ -4,8 +4,8 @@
 <script src="../assets/js/settings.js"></script>
 <script src="../assets/js/dz.carousel.js"></script><!-- Swiper -->
 <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
-<script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v6.6/mapsJavaScriptAPI.js" async defer></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+<script src="https://cdn.jsdelivr.net/gh/mobius1/selectr@latest/dist/selectr.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="../assets/vendor/sweetalert2/sweetalert2.min.js"></script>
 <script src="../assets/vendor/toastr/toastr.min.js"></script>
 <!-- Prevent Double Submission -->
