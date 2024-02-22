@@ -172,7 +172,7 @@ require_once('../partials/head.php');
                                             </div> <br>
                                             <div class="form-group col-md-12">
                                                 <label class="text-center">Incident location</label>
-                                                <select type="text" name="road_incident_location_id" class="form-control select2">
+                                                <select type="text" name="road_incident_location" class="form-control select2">
                                                     <option >Search location</option>
                                                     <?php
                                                     /* Pull List Of Locations */
@@ -292,7 +292,7 @@ require_once('../partials/head.php');
             var myLatlng = new google.maps.LatLng(-0.43124, 36.93599);
             var mapProp = {
                 center: myLatlng,
-                zoom: 10,
+                zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
 
             };
@@ -305,12 +305,10 @@ require_once('../partials/head.php');
             });
             document.getElementById('lat').value = -0.43124
             document.getElementById('lng').value = 36.93599
-            document.getElementById('Location').value = "Nyeri, Kenya"
             // marker drag event
             google.maps.event.addListener(marker, 'drag', function(event) {
                 document.getElementById('lat').value = event.latLng.lat();
                 document.getElementById('lng').value = event.latLng.lng();
-                document.getElementById('Location').value = event.
             });
 
             //marker drag event end
