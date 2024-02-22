@@ -276,6 +276,9 @@ require_once('../partials/head.php');
                                                         <h6 class="item-title">
                                                             <a href="incident?view=<?php echo $incidents['road_incident_id']; ?>"><?php echo $incidents['road_incident_type']; ?></a>
                                                         </h6>
+                                                        <p class="text-left">
+                                                            <?php echo $incidents['road_incident_description']; ?>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>

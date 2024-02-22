@@ -165,7 +165,6 @@ $html =
                                 <th style="width:50%">Incident Type</th>
                                 <th style="width:50%">Reported by</th>
                                 <th style="width:30%">Contacts</th>
-                                <th style="width:80%">Incident Location</th>
                                 <th style="width:50%">Date & Time</th>
                                 <th style="width:100%">Description</th>
                             </tr>
@@ -188,7 +187,6 @@ $html =
                                                 <td>' . $row['road_incident_type'] . '</td>
                                                 <td>' . $row['user_name'] . '</td>
                                                 <td>' . $row['user_contact_phone'] . '</td>
-                                                <td>' . $row['location_name'] . '</td>
                                                 <td>' . date('d M Y, g:ia', strtotime($row['road_incident_date_reported'])) . '</td>
                                                 <td>' . $row['road_incident_description'] . '</td>
                                             </tr>

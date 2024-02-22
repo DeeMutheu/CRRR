@@ -81,7 +81,7 @@ function filterData(&$str)
 $fileName = "Incidents update report.xls";
 
 /* Excel Column Name */
-$fields = array('#', 'Incident type', 'Reported by name',  'Reported by contacts', 'Location', 'Date & time', 'Description');
+$fields = array('#', 'Incident type', 'Reported by name',  'Reported by contacts',  'Date & time', 'Description');
 
 
 /* Implode Excel Data */
@@ -101,7 +101,6 @@ if ($query->num_rows > 0) {
             $row['road_incident_type'],
             $row['user_name'],
             $row['user_contact_phone'],
-            $row['location_name'],
             date('d M Y, g:ia', strtotime($row['road_incident_date_reported'])),
             $row['road_incident_description']
         );
