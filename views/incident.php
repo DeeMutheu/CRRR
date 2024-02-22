@@ -134,11 +134,16 @@ require_once('../partials/head.php');
                                         <div class="card-header border-0 pb-0">
                                             <h5 class="card-title">Location : <?php echo $incident['location_name']; ?></h5>
                                         </div>
+                                        <div class="card-body">
+                                            <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['location_name']; ?>&output=embed"></iframe>
+                                        </div>
                                     <?php } else { ?>
                                         <h5 class="card-title">Location</h5>
-                                    <?php } ?> <div class="card-body">
-                                        <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['location_name']; ?>&output=embed"></iframe>
-                                    </div>
+                                        <div class="card-body">
+                                            <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['incident_lat']; ?>,<?php echo $incident['incident_lng']; ?>&output=embed"></iframe>
+                                        </div>
+                                    <?php } ?>
+
                                 </div>
                             </div>
                             <div class="col-12">
