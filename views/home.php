@@ -253,8 +253,7 @@ require_once('../partials/head.php');
                                 if ($_SESSION['login_rank'] != 'Road User') {
                                     $incidents_sql = mysqli_query(
                                         $mysqli,
-                                        "SELECT * FROM road_incidents i
-                                        INNER JOIN locations l ON l.location_id = i.road_incident_location_id"
+                                        "SELECT * FROM road_incidents i"
                                     );
                                 } else {
                                     $incidents_sql = mysqli_query(

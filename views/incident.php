@@ -131,10 +131,10 @@ require_once('../partials/head.php');
                                 <div class="card">
                                     <?php if ($incident['road_incident_location'] != '') { ?>
                                         <div class="card-header border-0 pb-0">
-                                            <h5 class="card-title">Location : <?php echo $incident['location_name']; ?></h5>
+                                            <h5 class="card-title">Location : <?php echo $incident['road_incident_location']; ?></h5>
                                         </div>
                                         <div class="card-body">
-                                            <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['location_name']; ?>&output=embed"></iframe>
+                                            <iframe width="100%" height="300" src="https://maps.google.com/maps?q=<?php echo $incident['road_incident_location']; ?>&output=embed"></iframe>
                                         </div>
                                     <?php } else { ?>
                                         <h5 class="card-title">Location</h5>
