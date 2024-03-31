@@ -170,3 +170,57 @@ if (isset($_POST['Update_Auth'])) {
         }
     }
 }
+
+//Add Categories
+if (isset($_POST['Add_Categories'])) {
+    $category_name = mysqli_real_escape_string($mysqli, $_POST['category_name']);
+    $category_response_service_id = mysqli_real_escape_string($mysqli, $_POST['category_response_service_id']);
+
+    //Persist
+    if (
+        mysqli_query(
+            $mysqli,
+            "INSERT INTO categories (category_name, category_response_service_id) VALUES('{$category_name}', '{$category_response_service_id}')"
+        )
+    ) {
+        $success = "Category Added Successfully";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
+// Update Categories
+if (isset($_POST['Update_Categories'])) {
+    $category_id = mysqli_real_escape_string($mysqli, $_POST['category_id']);
+    $category_name = mysqli_real_escape_string($mysqli, $_POST['category_name']);
+    $category_response_service_id = mysqli_real_escape_string($mysqli, $_POST['category_response_service_id']);
+
+    //Update
+    if (
+        mysqli_query(
+            $mysqli,
+            "UPDATE categories SET category_name = '{$category_name}', category_response_service_id = '{$category_response_service_id}' WHERE category_id = '{$category_id}'"
+        )
+    ) {
+        $success = "Category Updated Successfully";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
+//Delete Categories
+if (isset($_POST['Delete_Category'])) {
+    $category_id = mysqli_real_escape_string($mysqli, $_POST['category_id']);
+
+    //Delete
+    if (
+        mysqli_query(
+            $mysqli,
+            "DELETE FROM categories WHERE category_id = '{$category_id}'"
+        )
+    ) {
+        $success = "Category Deleted Successfully";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
