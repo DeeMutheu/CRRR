@@ -285,7 +285,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span>Incidents Categories</span>
+                            <span>Services Categories</span>
                         </a>
                     </li>
                     <li>

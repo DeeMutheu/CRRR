@@ -180,7 +180,7 @@ if (isset($_POST['Add_Categories'])) {
     if (
         mysqli_query(
             $mysqli,
-            "INSERT INTO categories (category_name, category_response_service_id) VALUES('{$category_name}', '{$category_response_service_id}')"
+            "INSERT INTO incident_categories (category_name, category_response_service_id) VALUES('{$category_name}', '{$category_response_service_id}')"
         )
     ) {
         $success = "Category Added Successfully";
@@ -199,7 +199,7 @@ if (isset($_POST['Update_Categories'])) {
     if (
         mysqli_query(
             $mysqli,
-            "UPDATE categories SET category_name = '{$category_name}', category_response_service_id = '{$category_response_service_id}' WHERE category_id = '{$category_id}'"
+            "UPDATE incident_categories SET category_name = '{$category_name}', category_response_service_id = '{$category_response_service_id}' WHERE category_id = '{$category_id}'"
         )
     ) {
         $success = "Category Updated Successfully";
@@ -216,7 +216,7 @@ if (isset($_POST['Delete_Category'])) {
     if (
         mysqli_query(
             $mysqli,
-            "DELETE FROM categories WHERE category_id = '{$category_id}'"
+            "DELETE FROM incident_categories WHERE category_id = '{$category_id}'"
         )
     ) {
         $success = "Category Deleted Successfully";
