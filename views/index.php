@@ -77,7 +77,7 @@ require_once('../partials/head.php');
                     <div class="welcome-logo">
                         <img src="../assets/images/welcome/favicon.png" width="10%" alt="">
                         <div class="get-started">
-                            <h1 class="dz-title">Collaborative Road Rescue Ready Application</h1>
+                            <h1 class="dz-title">Swift Road Emergency Application</h1>
                             <br>
                             <p align="justify">We're thrilled to have you on board for this exciting journey of collaboration and preparedness.
                                 Our mission is to create a safer and more connected road experience for everyone.
