@@ -132,7 +132,7 @@
                     </li>
                 </ul>
                 <div class="sidebar-bottom">
-                    <h6 class="name">Collaborative Road Rescue Ready Application</h6>
+                    <h6 class="name">Swift Road Emergency Application</h6>
                     <p>App Version 1.0</p>
                 </div>
             </div>
@@ -239,7 +239,7 @@
                     </li>
                 </ul>
                 <div class="sidebar-bottom">
-                    <h6 class="name">Collaborative Road Rescue Ready Application</h6>
+                    <h6 class="name">Swift Road Emergency Application</h6>
                     <p>App Version 1.0</p>
                 </div>
             </div>
@@ -331,7 +331,7 @@
                     </li>
                 </ul>
                 <div class="sidebar-bottom">
-                    <h6 class="name">Collaborative Road Rescue Ready Application</h6>
+                    <h6 class="name">Swift Road Emergency Application</h6>
                     <p>App Version 1.0</p>
                 </div>
             </div>
