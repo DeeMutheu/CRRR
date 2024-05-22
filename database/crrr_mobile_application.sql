@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 07:48 AM
+-- Generation Time: Apr 05, 2024 at 07:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,14 +34,17 @@ CREATE TABLE `emergency_interactions` (
   `emergency_interaction_details` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `emergency_interactions`
+-- Table structure for table `incident_categories`
 --
 
-INSERT INTO `emergency_interactions` (`emergency_interaction_id`, `emergency_interaction_incident_id`, `emergency_interaction_service_id`, `emergency_interaction_details`) VALUES
-(1, 1, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(2, 2, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(3, 3, 1, '');
+CREATE TABLE `incident_categories` (
+  `category_id` int(200) NOT NULL,
+  `category_name` varchar(200) NOT NULL,
+  `category_response_service_id` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -144,7 +147,9 @@ CREATE TABLE `road_incidents` (
 --
 
 INSERT INTO `road_incidents` (`road_incident_id`, `road_incident_user_id`, `road_incident_type`, `road_incident_location`, `incident_lat`, `incident_lng`, `road_incident_description`, `road_incident_date_reported`, `road_incident_response_service_id`) VALUES
-(9, 2, 'Fire Accident', NULL, '-0.3971447710157459', '36.96092170000001', 'There is a fire emergency at Dedan Kimathi', '2024-02-22 05:52:10.112648', NULL);
+(9, 2, 'Fire Accident', NULL, '-0.3971447710157459', '36.96092170000001', 'There is a fire emergency at Dedan Kimathi', '2024-02-22 05:52:10.112648', NULL),
+(10, 1, 'Road Accident', 'Kimathi Way', '-0.43124', '36.93599', 'Tragic road accident and Kimathi way', '2024-02-22 06:54:31.064806', NULL),
+(11, 1, 'Towing', '', '-0.4621381084497168', '36.943199777832014', 'A towing emergency needed at Giakanja market', '2024-02-22 07:08:02.350702', NULL);
 
 -- --------------------------------------------------------
 
@@ -179,6 +184,12 @@ ALTER TABLE `emergency_interactions`
   ADD PRIMARY KEY (`emergency_interaction_id`),
   ADD KEY `IncidentID` (`emergency_interaction_incident_id`),
   ADD KEY `ServiceID` (`emergency_interaction_service_id`);
+
+--
+-- Indexes for table `incident_categories`
+--
+ALTER TABLE `incident_categories`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `locations`
@@ -225,6 +236,12 @@ ALTER TABLE `emergency_interactions`
   MODIFY `emergency_interaction_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `incident_categories`
+--
+ALTER TABLE `incident_categories`
+  MODIFY `category_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
@@ -246,7 +263,7 @@ ALTER TABLE `response_services`
 -- AUTO_INCREMENT for table `road_incidents`
 --
 ALTER TABLE `road_incidents`
-  MODIFY `road_incident_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `road_incident_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `road_users`
